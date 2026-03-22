@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Agent Maintenance Dashboard</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0d1117; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; }
+.header { background: #161b22; border-bottom: 1px solid #21262d; padding: 12px 20px; display: flex; align-items: center; gap: 16px; }
+.header h1 { font-size: 16px; font-weight: 600; color: #58a6ff; }
+.header-right { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+.container { padding: 16px 20px; max-width: 1200px; }
+.section { background: #161b22; border: 1px solid #21262d; border-radius: 8px; margin-bottom: 16px; padding: 16px; }
+.section-title { font-size: 13px; font-weight: 600; color: #58a6ff; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+.btn { background: #21262d; border: 1px solid #30363d; color: #c9d1d9; padding: 5px 12px; border-radius: 6px; font-size: 12px; cursor: pointer; }
+.btn:hover { background: #30363d; }
+.btn-primary { background: #1f6feb; border-color: #388bfd; color: #fff; }
+.btn-primary:hover { background: #388bfd; }
+.btn-danger { background: #21262d; border: 1px solid #f85149; color: #f85149; }
+.btn-danger:hover { background: #2d1117; }
+.btn-pub { background: #1a2e1a; border: 1px solid #2a6a2a; color: #68d391; padding: 4px 8px; border-radius: 4px; font-size: 11px; cursor: pointer; }
+.btn-pub:hover { background: #2a3e2a; }
+.btn-pub:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-retry { background: #2a1a1a; border: 1px solid #6a2a2a; color: #fc8181; padding: 4px 8px; border-radius: 4px; font-size: 11px; cursor: pointer; }
+.btn-retry:hover { background: #3a2a2a; }
+.btn-retry:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-exec { background: #1a1a2e; border: 1px solid #2a2a6a; color: #90cdf4; padding: 4px 8px; border-radius: 4px; font-size: 11px; cursor: pointer; }
+.btn-exec:hover { background: #2a2a3e; }
+.btn-track { background: #1a2e3a; border: 1px solid #2a5a6a; color: #63b3ed; padding: 4px 8px; border-radius: 4px; font-size: 11px; cursor: pointer; }
+.btn-track:hover { background: #2a3e4a; }
+.btn-track:disabled, .btn-exec:disabled { opacity: 0.5; cursor: not-allowed; }
+.badge { display: inline-block; padding: 2px 7px; border-radius: 10px; font-size: 10px; font-weight: 500; }
+.badge-ready { background: #1a3a1a; color: #68d391; border: 1px solid #2a6a2a; }
+.badge-published { background: #1a3a1a; color: #68d391; border: 1px solid #2a6a2a; }
+.badge-draft { background: #1a2a3a; color: #63b3ed; border: 1px solid #2a4a6a; }
+.badge-watch { background: #3a2a0a; color: #fbd38d; border: 1px solid #6a4a0a; }
+.badge-decline { background: #3a1a1a; color: #fc8181; border: 1px solid #6a2a2a; }
+.badge-unknown { background: #21262d; color: #8b949e; border: 1px solid #30363d; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th { text-align: left; padding: 6px 8px; color: #8b949e; font-weight: 500; border-bottom: 1px solid #21262d; }
+td { padding: 6px 8px; border-bottom: 1px solid #161b22; vertical-align: middle; }
+tr:hover td { background: #1c2128; }
+.result-box { border-radius: 6px; padding: 10px 12px; margin-top: 8px; }
+.result-box.ok { background: #1a3a1a; border: 1px solid #2a6a2a; }
+.result-box.error { background: #3a1a1a; border: 1px solid #6a2a2a; }
+.result-title { font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+.result-title.ok { color: #68d391; }
+.result-title.error { color: #fc8181; }
+.result-pre { font-family: monospace; font-size: 11px; color: #c9d1d9; white-space: pre-wrap; word-break: break-all; }
+.input { background: #0d1117; border: 1px solid #30363d; color: #c9d1d9; padding: 5px 10px; border-radius: 6px; font-size: 12px; width: 100%; }
+.input:focus { outline: none; border-color: #58a6ff; }
+.form-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+.form-label { color: #8b949e; font-size: 11px; min-width: 80px; }
+#loginBox { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.detail-row { display: none; }
+.detail-cell { padding: 8px; background: #0d1117; }
+.event-tag { display: inline-block; background: #21262d; border: 1px solid #30363d; border-radius: 4px; padding: 1px 5px; font-size: 10px; color: #8b949e; margin: 1px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>SEO Agent Maintenance Dashboard</h1>
+  <div class="header-right" id="authArea">
+    <div id="loginBox">
+      <input type="email" id="emailInput" class="input" placeholder="Email" style="width:160px" value="admin@test.com">
+      <input type="password" id="passInput" class="input" placeholder="Password" style="width:130px" value="testpass">
+      <button class="btn btn-primary" onclick="doLogin()">Login</button>
+    </div>
+    <span id="userInfo" style="display:none;color:#68d391;font-size:12px"></span>
+    <button id="logoutBtn" style="display:none" class="btn" onclick="doLogout()">Logout</button>
+  </div>
+</div>
+
+
+  <div id="wpOpsSummary" style="background:#0d1117;border-bottom:1px solid #21262d;padding:8px 20px;display:flex;gap:24px;font-size:12px;flex-wrap:wrap">
+    <span style="color:#8b949e">WP Ops:</span>
+    <span id="sumPublished" style="color:#68d391">Published: <strong id="sumPubCount">...</strong></span>
+    <span id="sumRetryable" style="color:#fbd38d">Retryable: <strong id="sumRetryCount">...</strong></span>
+    <span id="sumIssues" style="color:#fc8181">Issues: <strong id="sumIssueCount">...</strong></span>
+    <button class="btn" style="font-size:11px;padding:2px 8px" onclick="loadWpOpsSummary()">Refresh</button>
+  </div>
+<div class="container">
+
+  <!-- Article List -->
+  <div class="section">
+    <div class="section-title">Articles
+      <button class="btn" style="margin-left:8px" onclick="loadArticles()">Refresh</button>
+    </div>
+    <div class="table-wrap">
+      <table id="articleTable">
+        <thead><tr>
+          <th>Keyword</th><th>Status</th><th>Version</th><th>Published</th><th>Actions</th><th>Result</th>
+        </tr></thead>
+        <tbody id="articleBody"><tr><td colspan="6" style="color:#4a5568;text-align:center">Loading...</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Publish Status -->
+  <div class="section">
+    <div class="section-title">Publish Status</div>
+    <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+      <button class="btn" onclick="loadPublishedList(false)">All Articles</button>
+      <button class="btn" onclick="loadPublishedList(true)">Published Only</button>
+      <button class="btn" onclick="loadRetryableList()">Retryable</button>
+      <button class="btn" onclick="loadPublishIssues()">Integrity Issues</button>
+    </div>
+    <div id="publishStatusResult"></div>
+  </div>
+
+  <!-- Run History -->
+  <div class="section">
+    <div class="section-title">Run History
+      <button class="btn" style="margin-left:8px" onclick="loadRuns()">Refresh</button>
+    </div>
+    <div class="table-wrap">
+      <table id="runTable">
+        <thead><tr>
+          <th>Run ID</th><th>Mode</th><th>Started</th><th>Duration</th><th>Targets</th><th>Actions</th>
+        </tr></thead>
+        <tbody id="runBody"><tr><td colspan="6" style="color:#4a5568;text-align:center">Loading...</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WordPress Health -->
+  <div class="section">
+    <div class="section-title">WordPress Health</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+      <button class="btn" onclick="checkWpConnection()">Verify WordPress Connection</button>
+      <button class="btn" onclick="checkPublishConfig()">Config Check</button>
+    </div>
+    <div id="wpConnResult"></div>
+    <div style="margin-top:12px">
+      <div class="form-row">
+        <span class="form-label">Post ID</span>
+        <input type="number" id="vpPostId" class="input" placeholder="123" style="width:100px">
+        <span class="form-label">Expected Slug</span>
+        <input type="text" id="vpSlug" class="input" placeholder="my-post-slug" style="width:180px">
+        <span class="form-label">Expected Status</span>
+        <input type="text" id="vpStatus" class="input" placeholder="draft" style="width:100px" value="draft">
+        <button class="btn" onclick="verifyPost()">Verify Published Post</button>
+      </div>
+      <div id="vpResult"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var TOKEN = localStorage.getItem('seo_token') || '';
+
+function getHeaders() {
+  return { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + TOKEN };
+}
+
+async function apiRequest(path, opts) {
+  var options = Object.assign({ headers: getHeaders() }, opts || {});
+  if (options.body && typeof options.body === 'object') options.body = JSON.stringify(options.body);
+  var res = await fetch('/api/v1' + path, options);
+  if (res.status === 401) { showLogin(); throw new Error('Unauthorized'); }
+  return res.json();
+}
+
+function showLogin() {
+  document.getElementById('loginBox').style.display = 'flex';
+  document.getElementById('userInfo').style.display = 'none';
+  document.getElementById('logoutBtn').style.display = 'none';
+  TOKEN = '';
+  localStorage.removeItem('seo_token');
+}
+
+function showLoggedIn(email) {
+  document.getElementById('loginBox').style.display = 'none';
+  document.getElementById('userInfo').style.display = 'inline';
+  document.getElementById('userInfo').textContent = email;
+  document.getElementById('logoutBtn').style.display = 'inline';
+}
+
+async function doLogin() {
+  try {
+    var email = document.getElementById('emailInput').value;
+    var pass  = document.getElementById('passInput').value;
+    var res   = await fetch('/api/v1/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email, password: pass }) });
+    var data  = await res.json();
+    if (data.data && data.data.token) {
+      TOKEN = data.data.token;
+      localStorage.setItem('seo_token', TOKEN);
+      showLoggedIn(email);
+      loadArticles();
+      loadRuns();
+    } else {
+      alert('Login failed: ' + (data.error || 'unknown'));
+    }
+  } catch(e) { alert('Login error: ' + e.message); }
+}
+
+function doLogout() { showLogin(); }
+
+// auto login if token exists
+if (TOKEN) {
+  showLoggedIn(localStorage.getItem('seo_email') || 'logged in');
+  loadArticles();
+  loadRuns();
+}
+
+// ── Articles ─────────────────────────────────────────────────────────────────
+async function loadArticles() {
+  try {
+    var data = await apiRequest('/articles?limit=50');
+    var items = ((data || {}).data || {}).items || [];
+    var tbody = document.getElementById('articleBody');
+    if (!items.length) { tbody.innerHTML = '<tr><td colspan="6" style="color:#4a5568;text-align:center">No articles</td></tr>'; return; }
+    tbody.innerHTML = items.map(function(a) {
+      var id = a.id;
+      var pub = a.publishedUrl ? '<a href="' + a.publishedUrl + '" target="_blank" style="color:#63b3ed">[link]</a>' : '--';
+      return '<tr>' +
+        '<td style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + (a.keyword || '') + '">' + (a.keyword || '--') + '</td>' +
+        '<td><span class="badge badge-' + (a.status || 'unknown') + '">' + (a.status || '--') + '</span></td>' +
+        '<td style="color:#8b949e">' + (a.currentVersion || '--') + '</td>' +
+        '<td>' + pub + '</td>' +
+        '<td style="display:flex;gap:4px;flex-wrap:wrap">' +
+          '<button class="btn" style="font-size:10px;padding:2px 6px" id="dry_' + id + '" onclick="runArticle('' + id + '','dry_run')">Dry</button>' +
+          '<button class="btn-exec" id="exec_' + id + '" onclick="runArticle('' + id + '','execute')">Exec</button>' +
+          '<button class="btn-opt" id="opt_' + id + '" onclick="optimizeArticle(\'' + id + '\')">Opt</button>' +
+          '<button class="btn-pub" id="pub_' + id + '" onclick="publishArticle('' + id + '')">Pub</button>' +
+          '<button class="btn-retry" id="retry_' + id + '" onclick="retryPublish('' + id + '')">Retry</button>' +
+          '<button class="btn-track" id="track_' + id + '" onclick="refreshTracking('' + id + '')">#</button>' +
+        '</td>' +
+        '<td id="runResult_' + id + '" style="max-width:200px"></td>' +
+      '</tr>';
+    }).join('');
+  } catch(e) {
+    document.getElementById('articleBody').innerHTML = '<tr><td colspan="6" style="color:#fc8181">' + e.message + '</td></tr>';
+  }
+}
+
+async function runArticle(articleId, mode) {
+  var btn = document.getElementById(mode === 'dry_run' ? 'dry_' + articleId : 'exec_' + articleId);
+  if (btn) btn.disabled = true;
+  try {
+    var data = await apiRequest('/orchestrator/run', { method: 'POST', body: { mode: mode, articleId: articleId } });
+    var run = (data || {}).data || {};
+    var el = document.getElementById('runResult_' + articleId);
+    if (el) el.innerHTML = '<div class="result-box ok" style="margin-top:4px"><div class="result-title ok">Run OK</div><pre class="result-pre">' + (run.runId || '') + ' ' + (run.mode || '') + '</pre></div>';
+  } catch(e) {
+    var el = document.getElementById('runResult_' + articleId);
+    if (el) el.innerHTML = '<div class="result-box error" style="margin-top:4px"><div class="result-title error">Error</div><pre class="result-pre">' + e.message + '</pre></div>';
+  }
+  if (btn) btn.disabled = false;
+}
+
+async function publishArticle(articleId) {
+  var btn = document.getElementById('pub_' + articleId);
+  if (btn) btn.disabled = true;
+  try {
+    var data = await apiRequest('/articles/' + articleId + '/publish', { method: 'POST' });
+    var r = (data || {}).data || {};
+    var el = document.getElementById('runResult_' + articleId);
+    var cls = r.ok ? 'ok' : 'error';
+    var msg = r.skipped ? '[SKIP] ' + (r.reason || '') : (r.ok ? '[OK] postId:' + r.wordpressPostId : '[FAIL] ' + (r.error || ''));
+    if (el) el.innerHTML = '<div class="result-box ' + cls + '" style="margin-top:4px"><div class="result-title ' + cls + '">' + msg + '</div></div>';
+    loadArticles();
+  } catch(e) {
+    var el = document.getElementById('runResult_' + articleId);
+    if (el) el.innerHTML = '<div class="result-box error" style="margin-top:4px"><div class="result-title error">' + e.message + '</div></div>';
+  }
+  if (btn) btn.disabled = false;
+}
+
+async function retryPublish(articleId) {
+  var btn = document.getElementById('retry_' + articleId);
+  if (btn) btn.disabled = true;
+  try {
+    var data = await apiRequest('/articles/' + articleId + '/publish/retry', { method: 'POST' });
+    var r = (data || {}).data || {};
+    var el = document.getElementById('runResult_' + articleId);
+    var cls = r.ok ? 'ok' : 'error';
+    var msg = r.ok ? '[OK] Retry postId:' + r.wordpressPostId : '[FAIL] ' + (r.error || 'not retryable');
+    if (el) el.innerHTML = '<div class="result-box ' + cls + '" style="margin-top:4px"><div class="result-title ' + cls + '">' + msg + '</div></div>';
+    loadArticles();
+  } catch(e) {
+    var el = document.getElementById('runResult_' + articleId);
+    if (el) el.innerHTML = '<div class="result-box error" style="margin-top:4px"><div class="result-title error">' + e.message + '</div></div>';
+  }
+  if (btn) btn.disabled = false;
+}
+
+async function refreshTracking(articleId) {
+  var btn = document.getElementById('track_' + articleId);
+  if (btn) btn.disabled = true;
+  try {
+    var data = await apiRequest('/articles/' + articleId + '/tracking/update', { method: 'POST' });
+    var r = (data || {}).data || {};
+    var el = document.getElementById('runResult_' + articleId);
+    if (el) el.innerHTML = '<div class="result-box ok" style="margin-top:4px"><div class="result-title ok">Tracking</div><pre class="result-pre">idx:' + (r.indexStatus || '--') + ' snaps:' + (r.snapshotCount || 0) + '</pre></div>';
+    loadArticles();
+  } catch(e) {
+    var el = document.getElementById('runResult_' + articleId);
+    if (el) el.innerHTML = '<div class="result-box error" style="margin-top:4px"><div class="result-title error">' + e.message + '</div></div>';
+  }
+  if (btn) btn.disabled = false;
+}
+
+// ── Publish Status ────────────────────────────────────────────────────────────
+async function loadPublishedList(onlyPublished) {
+  var el = document.getElementById('publishStatusResult');
+  if (el) el.innerHTML = '<div style="color:#a0aec0;font-size:12px">Loading...</div>';
+  try {
+    var q = onlyPublished ? '?onlyPublished=true' : '';
+    var data = await apiRequest('/publish/articles' + q);
+    var items = ((data || {}).data || {}).items || [];
+    var total = ((data || {}).data || {}).total || 0;
+    if (!el) return;
+    el.innerHTML = '<div style="color:#a0aec0;font-size:12px;margin-bottom:8px">Total: ' + total + (onlyPublished ? ' (published only)' : '') + '</div>' +
+      items.map(function(it) {
+        return '<div style="background:#1a1d2e;border-radius:4px;padding:6px 10px;margin-bottom:4px;font-size:11px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">' +
+          '<div style="color:#e2e8f0;flex:1">' + (it.keyword || it.articleId) + '</div>' +
+          (it.isPublished ? '<span class="badge badge-ready">published</span>' : '<span class="badge badge-unknown">unpublished</span>') +
+          (it.canRetry ? '<span class="badge badge-watch" style="background:#744210">retryable</span>' : '') +
+          (it.publishedUrl ? '<a href="' + it.publishedUrl + '" target="_blank" style="color:#63b3ed;font-size:10px">[link]</a>' : '') +
+          '</div>';
+      }).join('');
+  } catch(e) {
+    if (el) el.innerHTML = '<div class="result-box error"><pre class="result-pre">' + e.message + '</pre></div>';
+  }
+}
+
+async function loadRetryableList() {
+  var el = document.getElementById('publishStatusResult');
+  if (el) el.innerHTML = '<div style="color:#a0aec0;font-size:12px">Loading retryable...</div>';
+  try {
+    var data = await apiRequest('/publish/articles?onlyRetryable=true');
+    var items = ((data || {}).data || {}).items || [];
+    if (!el) return;
+    el.innerHTML = '<div style="color:#fc8181;font-size:12px;margin-bottom:8px">Retryable: ' + items.length + '</div>' +
+      items.map(function(it) {
+        return '<div style="background:#1a1d2e;border-radius:4px;padding:6px 10px;margin-bottom:4px;font-size:11px;display:flex;gap:8px;align-items:center">' +
+          '<div style="color:#e2e8f0;flex:1">' + (it.keyword || it.articleId) + '</div>' +
+          '<span class="badge badge-watch" style="background:#744210">retryable</span>' +
+          '<button class="btn-retry" onclick="retryPublish('' + it.articleId + '')" style="font-size:10px">Retry</button>' +
+          '</div>';
+      }).join('');
+  } catch(e) {
+    if (el) el.innerHTML = '<div class="result-box error"><pre class="result-pre">' + e.message + '</pre></div>';
+  }
+}
+
+async function loadPublishIssues() {
+  var el = document.getElementById('publishStatusResult');
+  if (el) el.innerHTML = '<div style="color:#a0aec0;font-size:12px">Checking issues...</div>';
+  try {
+    var data = await apiRequest('/publish/issues');
+    var result = (data || {}).data || {};
+    var items  = result.items || [];
+    if (!el) return;
+    var total = result.totalIssues || 0;
+    el.innerHTML = '<div style="color:' + (total > 0 ? '#fc8181' : '#68d391') + ';font-size:12px;margin-bottom:8px">' + (total > 0 ? '[!] ' + total + ' issue(s) found' : '[OK] No issues') + '</div>' +
+      items.map(function(it) {
+        return '<div style="background:#1a1d2e;border-radius:4px;padding:6px 10px;margin-bottom:4px;font-size:11px">' +
+          '<div style="color:#e2e8f0">' + (it.keyword || it.articleId) + ' <span style="color:#fc8181">[' + it.issueType + ']</span></div>' +
+          '<div style="color:#718096;font-size:10px">' + (it.note || '') + '</div></div>';
+      }).join('');
+  } catch(e) {
+    if (el) el.innerHTML = '<div class="result-box error"><pre class="result-pre">' + e.message + '</pre></div>';
+  }
+}
+
+// ── Run History ───────────────────────────────────────────────────────────────
+var openRunIds = {};
+async function loadRuns() {
+  try {
+    var data = await apiRequest('/orchestrator/runs?limit=20');
+    var items = ((data || {}).data || {}).items || [];
+    var tbody = document.getElementById('runBody');
+    if (!items.length) { tbody.innerHTML = '<tr><td colspan="6" style="color:#4a5568;text-align:center">No runs</td></tr>'; return; }
+    tbody.innerHTML = items.map(function(r) {
+      var dur = r.durationMs ? (r.durationMs / 1000).toFixed(1) + 's' : '--';
+      var ts  = r.startedAt ? new Date(r.startedAt).toLocaleString() : '--';
+      return '<tr>' +
+        '<td style="font-family:monospace;font-size:10px;color:#8b949e">' + (r.runId || '--').slice(-12) + '</td>' +
+        '<td><span class="badge badge-' + (r.mode === 'execute' ? 'ready' : 'draft') + '">' + (r.mode || '--') + '</span></td>' +
+        '<td style="color:#8b949e;font-size:11px">' + ts + '</td>' +
+        '<td style="color:#8b949e">' + dur + '</td>' +
+        '<td style="color:#8b949e">' + ((r.totals && r.totals.totalTargets) || (r.summary && r.summary.totalTargets) || '--') + '</td>' +
+        '<td><button class="btn" style="font-size:10px;padding:2px 6px" onclick="toggleRunDetail('' + r.runId + '')">Detail</button></td>' +
+      '</tr>' +
+      '<tr class="detail-row" id="detail_row_' + r.runId + '"><td colspan="6" class="detail-cell"><div id="detail_box_' + r.runId + '" style="color:#4a5568;font-size:11px">Loading...</div></td></tr>';
+    }).join('');
+  } catch(e) {
+    document.getElementById('runBody').innerHTML = '<tr><td colspan="6" style="color:#fc8181">' + e.message + '</td></tr>';
+  }
+}
+
+async function toggleRunDetail(runId) {
+  var row = document.getElementById('detail_row_' + runId);
+  var box = document.getElementById('detail_box_' + runId);
+  if (!row) return;
+  if (openRunIds[runId]) {
+    row.style.display = 'none';
+    openRunIds[runId] = false;
+    return;
+  }
+  row.style.display = '';
+  openRunIds[runId] = true;
+  try {
+    var data = await apiRequest('/orchestrator/runs/' + runId);
+    var run = (data || {}).data || {};
+    var items = run.items || [];
+    if (!items.length) { if (box) box.innerHTML = '<div style="color:#4a5568">No items.</div>'; return; }
+    if (box) box.innerHTML = items.map(function(it) {
+      return '<div style="background:#1a1d2e;border-radius:4px;padding:5px 8px;margin-bottom:3px;display:flex;gap:8px">' +
+        '<div style="color:#e2e8f0;flex:1">' + (it.keyword || '--') + '</div>' +
+        '<span class="badge badge-' + (it.decayStatus || 'unknown') + '">' + (it.decayStatus || '--') + '</span>' +
+        '<span style="color:#a0aec0;font-size:10px">' + (it.recommendedActionHint || '') + '</span></div>';
+    }).join('');
+  } catch(e) {
+    if (box) box.innerHTML = '<div style="color:#fc8181">' + e.message + '</div>';
+  }
+}
+
+// ── WordPress Health ──────────────────────────────────────────────────────────
+async function checkWpConnection() {
+  var el = document.getElementById('wpConnResult');
+  if (el) el.innerHTML = '<div style="color:#a0aec0;font-size:12px">Checking...</div>';
+  try {
+    var data = await apiRequest('/publish/verify-connection');
+    var r = (data || {}).data || {};
+    var cls = r.ok ? 'ok' : 'error';
+    var lines = ['ok: ' + r.ok, 'siteName: ' + (r.siteName || '--'), 'user: ' + (r.user || '--'), 'canCreatePosts: ' + r.canCreatePosts, 'canUploadMedia: ' + r.canUploadMedia];
+    if (r.error) lines.push('error: ' + r.error);
+    if (el) el.innerHTML = '<div class="result-box ' + cls + '"><div class="result-title ' + cls + '">' + (r.ok ? '[OK] Connected' : '[FAIL] Connection failed') + '</div><pre class="result-pre">' + lines.join('\n') + '</pre></div>';
+  } catch(e) {
+    if (el) el.innerHTML = '<div class="result-box error"><div class="result-title error">Error</div><pre class="result-pre">' + e.message + '</pre></div>';
+  }
+}
+
+async function checkPublishConfig() {
+  var el = document.getElementById('wpConnResult');
+  if (el) el.innerHTML = '<div style="color:#a0aec0;font-size:12px">Checking config...</div>';
+  try {
+    var data = await apiRequest('/publish/config-check');
+    var r = (data || {}).data || {};
+    var cls = r.configured ? 'ok' : 'error';
+    var lines = ['configured: ' + r.configured, 'hasBaseUrl: ' + r.hasBaseUrl, 'hasUsername: ' + r.hasUsername, 'hasAppPassword: ' + r.hasAppPassword, 'defaultPostStatus: ' + (r.defaultPostStatus || '--')];
+    if (el) el.innerHTML = '<div class="result-box ' + cls + '"><div class="result-title ' + cls + '">' + (r.configured ? '[OK] Config OK' : '[WARN] Config incomplete') + '</div><pre class="result-pre">' + lines.join('\n') + '</pre></div>';
+  } catch(e) {
+    if (el) el.innerHTML = '<div class="result-box error"><div class="result-title error">Error</div><pre class="result-pre">' + e.message + '</pre></div>';
+  }
+}
+
+async function verifyPost() {
+  var postId   = document.getElementById('vpPostId').value;
+  var slug     = document.getElementById('vpSlug').value;
+  var status   = document.getElementById('vpStatus').value;
+  var el       = document.getElementById('vpResult');
+  if (!postId) { if (el) el.innerHTML = '<div class="result-box error"><div class="result-title error">postId required</div></div>'; return; }
+  try {
+    var data = await apiRequest('/publish/verify-post', { method: 'POST', body: { postId: parseInt(postId), expectedSlug: slug, expectedStatus: status } });
+    var r = (data || {}).data || {};
+    var cls = r.verified ? 'ok' : 'error';
+    var lines = ['verified: ' + r.verified, 'actualSlug: ' + (r.actualSlug || '--'), 'actualStatus: ' + (r.actualStatus || '--'), 'slugMatches: ' + r.slugMatches, 'statusMatches: ' + r.statusMatches];
+    if (r.error) lines.push('error: ' + r.error);
+    if (el) el.innerHTML = '<div class="result-box ' + cls + '"><div class="result-title ' + cls + '">' + (r.verified ? '[OK] Verified' : '[FAIL] Not Verified') + '</div><pre class="result-pre">' + lines.join('\n') + '</pre></div>';
+  } catch(e) {
+    if (el) el.innerHTML = '<div class="result-box error"><div class="result-title error">Error</div><pre class="result-pre">' + e.message + '</pre></div>';
+  }
+}
+
+async function checkEligibility(articleId) {
+  var btn = document.getElementById('elig_' + articleId);
+  if (btn) btn.disabled = true;
+  try {
+    var data = await apiRequest('/articles/' + articleId + '/publish/eligibility');
+    var r = (data || {}).data || {};
+    var el = document.getElementById('runResult_' + articleId);
+    var cls = r.shouldPublish ? 'ok' : 'error';
+    var lines = [
+      'shouldPublish: ' + r.shouldPublish,
+      'reason: ' + (r.reason || '--'),
+      'currentVersion: ' + (r.currentVersion || '--'),
+      'publishedUrl: ' + (r.publishedUrl || '--'),
+      'status: ' + (r.articleStatus || '--'),
+    ].join('\n');
+    if (el) el.innerHTML = '<div class="result-box ' + cls + '" style="margin-top:4px"><div class="result-title ' + cls + '">[ELIG] ' + (r.shouldPublish ? 'Ready' : 'Not Ready') + '</div><pre class="result-pre">' + lines + '</pre></div>';
+  } catch(e) {
+    var el = document.getElementById('runResult_' + articleId);
+    if (el) el.innerHTML = '<div class="result-box error" style="margin-top:4px"><div class="result-title error">' + e.message + '</div></div>';
+  }
+  if (btn) btn.disabled = false;
+}
+
+async function checkPublishStatus(articleId) {
+  var btn = document.getElementById('stat_' + articleId);
+  if (btn) btn.disabled = true;
+  try {
+    var data = await apiRequest('/articles/' + articleId + '/publish/status');
+    var r = (data || {}).data || {};
+    var el = document.getElementById('runResult_' + articleId);
+    var cls = r.isPublished ? 'ok' : 'error';
+    var lines = [
+      'isPublished: ' + r.isPublished,
+      'publishedUrl: ' + (r.publishedUrl || '--'),
+      'publishedAt: ' + (r.publishedAt ? r.publishedAt.slice(0,19) : '--'),
+      'wordpressPostId: ' + (r.wordpressPostId || '--'),
+      'publishEventCount: ' + (r.publishEventCount || 0),
+      'canRetry: ' + r.canRetry,
+      'lastError: ' + (r.lastPublishError || 'none'),
+    ].join('\n');
+    if (el) el.innerHTML = '<div class="result-box ' + cls + '" style="margin-top:4px"><div class="result-title ' + cls + '">[STATUS] ' + (r.isPublished ? 'Published' : 'Not Published') + '</div><pre class="result-pre">' + lines + '</pre></div>';
+  } catch(e) {
+    var el = document.getElementById('runResult_' + articleId);
+    if (el) el.innerHTML = '<div class="result-box error" style="margin-top:4px"><div class="result-title error">' + e.message + '</div></div>';
+  }
+  if (btn) btn.disabled = false;
+}
+
+async function loadWpOpsSummary() {
+  try {
+    var [listData, issueData] = await Promise.all([
+      apiRequest('/publish/articles?limit=200'),
+      apiRequest('/publish/issues'),
+    ]);
+    var items   = ((listData || {}).data || {}).items || [];
+    var issues  = ((issueData || {}).data || {}).totalIssues || 0;
+    var pubCount = items.filter(function(i) { return i.isPublished; }).length;
+    var retCount = items.filter(function(i) { return i.canRetry; }).length;
+    var pc = document.getElementById('sumPubCount');
+    var rc = document.getElementById('sumRetryCount');
+    var ic = document.getElementById('sumIssueCount');
+    if (pc) pc.textContent = pubCount;
+    if (rc) rc.textContent = retCount;
+    if (ic) ic.textContent = issues;
+  } catch(e) {
+    console.error('wpOpsSummary error:', e.message);
+  }
+}
+
+</script>
+
+    <!-- Programmatic SEO -->
+    <section id="programmatic-section" style="margin-top:2rem;padding:1.5rem;border:1px solid #ddd;border-radius:8px;">
+      <h2 style="margin-top:0">Programmatic SEO</h2>
+      <div style="display:grid;gap:0.75rem;max-width:600px">
+        <div>
+          <label><b>Base Keyword</b></label><br>
+          <input id="pg-baseKeyword" type="text" placeholder="en iyi oteller" style="width:100%;padding:6px;margin-top:4px">
+        </div>
+        <div>
+          <label><b>Locations</b> (virgülle ayır)</label><br>
+          <textarea id="pg-locations" rows="2" placeholder="istanbul, ankara, izmir" style="width:100%;padding:6px;margin-top:4px"></textarea>
+        </div>
+        <div>
+          <label><b>Modifiers</b> (virgülle ayır)</label><br>
+          <textarea id="pg-modifiers" rows="2" placeholder="2026, ucuz, yorumlar" style="width:100%;padding:6px;margin-top:4px"></textarea>
+        </div>
+        <div style="display:flex;gap:1rem;align-items:center">
+          <div>
+            <label><b>Limit</b></label><br>
+            <input id="pg-limit" type="number" value="10" min="1" max="100" style="width:80px;padding:6px;margin-top:4px">
+          </div>
+          <div style="margin-top:1.5rem">
+            <label><input id="pg-safeMode" type="checkbox" checked> SafeMode</label>
+          </div>
+        </div>
+        <button onclick="runProgrammaticCampaign()" style="padding:8px 16px;background:#2563eb;color:white;border:none;border-radius:4px;cursor:pointer">Run Campaign</button>
+      </div>
+      <pre id="pg-result" style="margin-top:1rem;background:#f3f4f6;padding:1rem;border-radius:4px;overflow:auto;display:none"></pre>
+    </section>
+    <script>
+    async function runProgrammaticCampaign() {
+      var token = localStorage.getItem('token');
+      var baseKeyword = document.getElementById('pg-baseKeyword').value.trim();
+      if (!baseKeyword) { alert('baseKeyword zorunlu'); return; }
+      var locations = document.getElementById('pg-locations').value.split(',').map(s=>s.trim()).filter(Boolean);
+      var modifiers = document.getElementById('pg-modifiers').value.split(',').map(s=>s.trim()).filter(Boolean);
+      var limit = parseInt(document.getElementById('pg-limit').value, 10) || 10;
+      var safeMode = document.getElementById('pg-safeMode').checked;
+      var resultEl = document.getElementById('pg-result');
+      resultEl.style.display = 'block';
+      resultEl.textContent = 'Running...';
+      try {
+        var r = await fetch('/api/v1/programmatic/run', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+          body: JSON.stringify({ baseKeyword, locations, modifiers, limit, safeMode })
+        });
+        var data = await r.json();
+        var d = data.data || {};
+        var lines = [
+          'totalGenerated : ' + d.totalGenerated,
+          'created        : ' + d.created,
+          'published      : ' + d.published,
+          'failed         : ' + d.failed,
+          '',
+          'Items:'
+        ];
+        (d.items || []).forEach(function(it) {
+          lines.push('  [' + (it.ok ? 'OK' : 'FAIL') + '] ' + it.keyword + (it.articleId ? ' --> ' + it.articleId : '') + (it.error ? ' ERR: ' + it.error : ''));
+        });
+        resultEl.textContent = lines.join('\n');
+      } catch(e) {
+        resultEl.textContent = 'Error: ' + e.message;
+      }
+    }
+    </script>
+
+
+<!-- RUN_HISTORY_SECTION_READY -->
+<section style="margin-top:2rem">
+  <h2>Scheduler Run History</h2>
+  <button onclick="loadRunHistory()">Load Run History</button>
+  <div id="runHistoryResult" style="margin-top:1rem"></div>
+  <table id="runHistoryTable" border="1" cellpadding="4" style="display:none;width:100%;border-collapse:collapse;margin-top:1rem">
+    <thead>
+      <tr>
+        <th>Run ID</th><th>Started At</th><th>Duration (ms)</th>
+        <th>GSC ok/fail</th><th>Decisions</th>
+        <th>Exec done/skip/fail</th><th>Publish ok/skip/fail</th><th>Error</th>
+      </tr>
+    </thead>
+    <tbody id="runHistoryBody"></tbody>
+  </table>
+</section>
+<script>
+async function loadRunHistory() {
+  const token = localStorage.getItem('token');
+  const res = await fetch('/api/v1/run-history/runs', { headers: { Authorization: 'Bearer ' + token } });
+  const json = await res.json();
+  document.getElementById('runHistoryResult').textContent = '';
+  if (!json.success) { document.getElementById('runHistoryResult').textContent = 'Error: ' + JSON.stringify(json); return; }
+  const items = json.data.items || [];
+  const tbody = document.getElementById('runHistoryBody');
+  tbody.innerHTML = '';
+  items.forEach(function(r) {
+    const s = r.summary || {};
+    const g = s.gsc || {}; const d = s.decisions || {}; const e = s.execution || {}; const p = s.publish || {};
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + (r.runId||'') + '</td>' +
+      '<td>' + (r.startedAt||'').slice(0,19).replace('T',' ') + '</td>' +
+      '<td>' + (r.durationMs||0) + '</td>' +
+      '<td>' + (g.success||0) + '/' + (g.failed||0) + '</td>' +
+      '<td>' + (d.total||0) + '</td>' +
+      '<td>' + (e.executed||0) + '/' + (e.skipped||0) + '/' + (e.failed||0) + '</td>' +
+      '<td>' + (p.success||0) + '/' + (p.skipped||0) + '/' + (p.failed||0) + '</td>' +
+      '<td>' + (r.error||'') + '</td>';
+    tbody.appendChild(tr);
+  });
+  document.getElementById('runHistoryTable').style.display = items.length ? '' : 'none';
+  if (!items.length) document.getElementById('runHistoryResult').textContent = 'No runs yet.';
+}
+</script>
+
+
+<!-- REVENUE_SECTION_READY -->
+<section style="margin-top:2rem">
+  <h2>Revenue Tracking</h2>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem">
+    <input id="rev_siteId" placeholder="siteId" style="padding:4px;width:120px">
+    <input id="rev_articleId" placeholder="articleId" style="padding:4px;width:180px">
+    <input id="rev_keyword" placeholder="keyword" style="padding:4px;width:140px">
+    <select id="rev_type" style="padding:4px">
+      <option value="lead">lead</option>
+      <option value="sale">sale</option>
+      <option value="conversion">conversion</option>
+      <option value="manual_value">manual_value</option>
+    </select>
+    <input id="rev_value" placeholder="value" type="number" min="0" step="0.01" style="padding:4px;width:80px">
+    <input id="rev_currency" placeholder="currency" value="USD" style="padding:4px;width:60px">
+    <input id="rev_source" placeholder="source" style="padding:4px;width:100px">
+    <button onclick="saveRevenueEvent()">Save Event</button>
+    <button onclick="loadRevenueSummary()">Load Summary</button>
+  </div>
+  <div id="revResult" style="margin-bottom:1rem;font-size:0.9rem"></div>
+  <div id="revSummary" style="background:#f9f9f9;padding:1rem;display:none;border:1px solid #ddd">
+    <strong>Revenue Summary</strong><br>
+    Total Value: <span id="rev_totalValue">-</span> |
+    Events: <span id="rev_totalEvents">-</span> |
+    Leads: <span id="rev_leads">-</span> |
+    Sales: <span id="rev_sales">-</span> |
+    Conversions: <span id="rev_conversions">-</span> |
+    Latest: <span id="rev_latest">-</span>
+  </div>
+</section>
+<script>
+async function saveRevenueEvent() {
+  const token = localStorage.getItem('token');
+  const body = {
+    siteId:    document.getElementById('rev_siteId').value || null,
+    articleId: document.getElementById('rev_articleId').value || null,
+    keyword:   document.getElementById('rev_keyword').value || null,
+    type:      document.getElementById('rev_type').value,
+    value:     parseFloat(document.getElementById('rev_value').value) || 0,
+    currency:  document.getElementById('rev_currency').value || 'USD',
+    source:    document.getElementById('rev_source').value || null,
+  };
+  const res = await fetch('/api/v1/revenue/events', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify(body) });
+  const json = await res.json();
+  document.getElementById('revResult').textContent = json.success ? 'Saved: ' + (json.data && json.data.eventId) : 'Error: ' + JSON.stringify(json);
+}
+async function loadRevenueSummary() {
+  const token = localStorage.getItem('token');
+  const siteId = document.getElementById('rev_siteId').value;
+  const articleId = document.getElementById('rev_articleId').value;
+  const keyword = document.getElementById('rev_keyword').value;
+  var qs = [];
+  if (siteId) qs.push('siteId=' + encodeURIComponent(siteId));
+  if (articleId) qs.push('articleId=' + encodeURIComponent(articleId));
+  if (keyword) qs.push('keyword=' + encodeURIComponent(keyword));
+  const res = await fetch('/api/v1/revenue/summary' + (qs.length ? '?' + qs.join('&') : ''), { headers: { Authorization: 'Bearer ' + token } });
+  const json = await res.json();
+  if (json.success) {
+    var d = json.data;
+    document.getElementById('rev_totalValue').textContent = d.totalValue;
+    document.getElementById('rev_totalEvents').textContent = d.totalEvents;
+    document.getElementById('rev_leads').textContent = d.leads;
+    document.getElementById('rev_sales').textContent = d.sales;
+    document.getElementById('rev_conversions').textContent = d.conversions;
+    document.getElementById('rev_latest').textContent = d.latestEventAt ? d.latestEventAt.slice(0,19).replace('T',' ') : '-';
+    document.getElementById('revSummary').style.display = '';
+  }
+}
+</script>
+
+
+<!-- LIVE_OPS_SECTION_READY -->
+<section style="margin-top:2rem">
+  <h2>Live Ops</h2>
+  <div style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap">
+    <button onclick="loadHealthDetails()">Load Health Details</button>
+    <button onclick="loadRuntimeConfig()">Load Runtime Config</button>
+  </div>
+  <div id="liveOpsPanel" style="background:#f9f9f9;padding:1rem;border:1px solid #ddd;display:none;font-size:0.9rem">
+    <strong>Scheduler</strong><br>
+    Enabled: <span id="lo_sched_enabled">-</span> |
+    Running: <span id="lo_sched_running">-</span> |
+    Last Run: <span id="lo_last_run">-</span> |
+    Last Duration: <span id="lo_last_dur">-</span>ms |
+    Position Guard Skipped: <span id="lo_pos_guard">-</span> |
+    Last Error: <span id="lo_last_err">-</span>
+    <hr style="margin:0.5rem 0">
+    <strong>Runtime Config</strong><br>
+    Publish Enabled: <span id="lo_publish">-</span> |
+    GSC Sync: <span id="lo_gsc">-</span> |
+    Campaign Safe Mode: <span id="lo_safe">-</span> |
+    Max Campaigns: <span id="lo_max_camp">-</span> |
+    Interval: <span id="lo_interval">-</span>ms
+  </div>
+</section>
+<script>
+async function loadHealthDetails() {
+  const token = localStorage.getItem('token');
+  const res = await fetch('/api/v1/health/details', { headers: { Authorization: 'Bearer ' + token } });
+  const json = await res.json();
+  if (!json.data) return;
+  const d = json.data; const s = d.scheduler || {};
+  document.getElementById('lo_sched_enabled').textContent = s.enabled;
+  document.getElementById('lo_sched_running').textContent = s.running;
+  document.getElementById('lo_last_run').textContent = s.lastStartedAt ? s.lastStartedAt.slice(0,19).replace('T',' ') : '-';
+  document.getElementById('lo_last_dur').textContent = s.lastDurationMs || '-';
+  document.getElementById('lo_last_err').textContent = s.lastError || 'none';
+  document.getElementById('liveOpsPanel').style.display = '';
+}
+async function loadRuntimeConfig() {
+  const token = localStorage.getItem('token');
+  const res = await fetch('/api/v1/health/runtime', { headers: { Authorization: 'Bearer ' + token } });
+  const json = await res.json();
+  if (!json.data || !json.data.config) return;
+  const c = json.data.config;
+  document.getElementById('lo_publish').textContent = c.publishEnabled;
+  document.getElementById('lo_gsc').textContent = c.gscSyncEnabled;
+  document.getElementById('lo_safe').textContent = c.campaignSafeMode;
+  document.getElementById('lo_max_camp').textContent = c.maxCampaignsPerCycle;
+  document.getElementById('lo_interval').textContent = c.schedulerIntervalMs;
+  document.getElementById('liveOpsPanel').style.display = '';
+}
+</script>
+
+
+<!-- SITES_SECTION_READY -->
+<section style="margin-top:2rem">
+  <h2>Sites</h2>
+  <div style="display:flex;gap:0.5rem;margin-bottom:0.5rem;flex-wrap:wrap">
+    <button onclick="loadSites()">Load Sites</button>
+  </div>
+  <table id="sitesTable" border="1" cellpadding="4" style="display:none;width:100%;border-collapse:collapse;margin-bottom:1rem">
+    <thead><tr><th>siteId</th><th>name</th><th>enabled</th><th>publish</th><th>gsc</th><th>campaign</th><th>safeMode</th><th>daily</th><th>hourly</th></tr></thead>
+    <tbody id="sitesBody"></tbody>
+  </table>
+  <details style="margin-top:0.5rem"><summary>Add / Update Site</summary>
+  <div style="padding:0.5rem;background:#f9f9f9;display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.4rem">
+    <input id="s_siteId" placeholder="siteId*" style="padding:4px;width:120px">
+    <input id="s_name" placeholder="name*" style="padding:4px;width:140px">
+    <input id="s_baseUrl" placeholder="baseUrl" style="padding:4px;width:180px">
+    <input id="s_lang" placeholder="language (tr)" value="tr" style="padding:4px;width:80px">
+    <input id="s_niche" placeholder="niche" style="padding:4px;width:100px">
+    <select id="s_enabled" style="padding:4px"><option value="true">enabled</option><option value="false">disabled</option></select>
+    <select id="s_publish" style="padding:4px"><option value="false">publish: off</option><option value="true">publish: on</option></select>
+    <select id="s_gsc" style="padding:4px"><option value="true">gsc: on</option><option value="false">gsc: off</option></select>
+    <select id="s_campaign" style="padding:4px"><option value="false">campaign: off</option><option value="true">campaign: on</option></select>
+    <select id="s_safe" style="padding:4px"><option value="true">safeMode: on</option><option value="false">safeMode: off</option></select>
+    <input id="s_daily" placeholder="dailyLimit (20)" type="number" value="20" style="padding:4px;width:80px">
+    <input id="s_hourly" placeholder="hourlyLimit (5)" type="number" value="5" style="padding:4px;width:70px">
+    <button onclick="saveSiteForm()">Save Site</button>
+  </div></details>
+  <div id="sitesResult" style="margin-top:0.5rem;font-size:0.9rem"></div>
+</section>
+<script>
+async function loadSites() {
+  const token = localStorage.getItem('token');
+  const res = await fetch('/api/v1/sites', { headers: { Authorization: 'Bearer ' + token } });
+  const json = await res.json();
+  if (!json.success) { document.getElementById('sitesResult').textContent = 'Error'; return; }
+  const items = json.data.items || [];
+  const tbody = document.getElementById('sitesBody');
+  tbody.innerHTML = '';
+  items.forEach(function(s) {
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + s.siteId + '</td><td>' + (s.name||'') + '</td><td>' + s.enabled + '</td><td>' + s.publishEnabled + '</td><td>' + s.gscEnabled + '</td><td>' + s.campaignEnabled + '</td><td>' + s.safeMode + '</td><td>' + s.dailyArticleLimit + '</td><td>' + s.hourlyArticleLimit + '</td>';
+    tbody.appendChild(tr);
+  });
+  document.getElementById('sitesTable').style.display = items.length ? '' : 'none';
+  document.getElementById('sitesResult').textContent = items.length + ' sites loaded';
+}
+async function saveSiteForm() {
+  const token = localStorage.getItem('token');
+  const siteId = document.getElementById('s_siteId').value;
+  if (!siteId) { document.getElementById('sitesResult').textContent = 'siteId is required'; return; }
+  const body = {
+    siteId, name: document.getElementById('s_name').value,
+    baseUrl: document.getElementById('s_baseUrl').value || null,
+    language: document.getElementById('s_lang').value || 'tr',
+    niche: document.getElementById('s_niche').value || null,
+    enabled: document.getElementById('s_enabled').value === 'true',
+    publishEnabled: document.getElementById('s_publish').value === 'true',
+    gscEnabled: document.getElementById('s_gsc').value === 'true',
+    campaignEnabled: document.getElementById('s_campaign').value === 'true',
+    safeMode: document.getElementById('s_safe').value === 'true',
+    dailyArticleLimit: parseInt(document.getElementById('s_daily').value) || 20,
+    hourlyArticleLimit: parseInt(document.getElementById('s_hourly').value) || 5,
+  };
+  // try PATCH first, fall back to POST
+  var r = await fetch('/api/v1/sites/' + siteId, { method: 'PATCH', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify(body) });
+  if (r.status === 404) {
+    r = await fetch('/api/v1/sites', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify(body) });
+  }
+  const json = await r.json();
+  document.getElementById('sitesResult').textContent = json.success ? 'Saved: ' + siteId : 'Error: ' + JSON.stringify(json);
+  if (json.success) loadSites();
+}
+</script>
+
+
+<!-- AUTO_PUBLISH_GATE_READY -->
+<script>
+// Extend loadHealthDetails to show publish gate info
+var _origLoadHealthDetails = typeof loadHealthDetails === 'function' ? loadHealthDetails : null;
+</script>
+
+</body>
+</html>

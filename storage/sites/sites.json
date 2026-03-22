@@ -1,0 +1,412 @@
+[
+  {
+    "enabled": false,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 25,
+    "hourlyArticleLimit": 3,
+    "language": "tr",
+    "niche": "jewelry",
+    "wordpress": {
+      "baseUrl": "https://test.com",
+      "username": "admin",
+      "appPassword": "secret123"
+    },
+    "metadata": {},
+    "siteId": "test_site_1774185813278",
+    "name": "Test Site",
+    "baseUrl": "https://test.com"
+  },
+  {
+    "enabled": false,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 25,
+    "hourlyArticleLimit": 3,
+    "language": "tr",
+    "niche": "jewelry",
+    "wordpress": {
+      "baseUrl": "https://test.com",
+      "username": "admin",
+      "appPassword": "secret123"
+    },
+    "metadata": {},
+    "siteId": "test_site_1774185894296",
+    "name": "Test Site",
+    "baseUrl": "https://test.com"
+  },
+  {
+    "enabled": false,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 25,
+    "hourlyArticleLimit": 3,
+    "language": "tr",
+    "niche": "jewelry",
+    "wordpress": {
+      "baseUrl": "https://test.com",
+      "username": "admin",
+      "appPassword": "secret123"
+    },
+    "metadata": {},
+    "siteId": "test_site_1774185910290",
+    "name": "Test Site",
+    "baseUrl": "https://test.com"
+  },
+  {
+    "enabled": true,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 5,
+    "hourlyArticleLimit": 2,
+    "language": "tr",
+    "niche": null,
+    "wordpress": {
+      "baseUrl": null,
+      "username": null,
+      "appPassword": null
+    },
+    "metadata": {},
+    "siteId": "quota_test_1774185910475",
+    "name": "Quota Test"
+  },
+  {
+    "enabled": true,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 50,
+    "hourlyArticleLimit": 3,
+    "language": "tr",
+    "niche": null,
+    "wordpress": {
+      "baseUrl": "https://test.com",
+      "username": "admin",
+      "appPassword": "supersecret"
+    },
+    "metadata": {},
+    "siteId": "api_site_1774185946667",
+    "name": "API Test Site",
+    "baseUrl": "https://test.com"
+  },
+  {
+    "enabled": false,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 25,
+    "hourlyArticleLimit": 3,
+    "language": "tr",
+    "niche": "jewelry",
+    "wordpress": {
+      "baseUrl": "https://test.com",
+      "username": "admin",
+      "appPassword": "secret123"
+    },
+    "metadata": {},
+    "siteId": "test_site_1774186757514",
+    "name": "Test Site",
+    "baseUrl": "https://test.com"
+  },
+  {
+    "enabled": true,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 5,
+    "hourlyArticleLimit": 2,
+    "language": "tr",
+    "niche": null,
+    "wordpress": {
+      "baseUrl": null,
+      "username": null,
+      "appPassword": null
+    },
+    "metadata": {},
+    "siteId": "quota_test_1774186757711",
+    "name": "Quota Test"
+  },
+  {
+    "enabled": false,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 25,
+    "hourlyArticleLimit": 3,
+    "language": "tr",
+    "niche": "jewelry",
+    "wordpress": {
+      "baseUrl": "https://test.com",
+      "username": "admin",
+      "appPassword": "secret123"
+    },
+    "metadata": {},
+    "siteId": "test_site_1774186969341",
+    "name": "Test Site",
+    "baseUrl": "https://test.com"
+  },
+  {
+    "enabled": true,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 5,
+    "hourlyArticleLimit": 2,
+    "language": "tr",
+    "niche": null,
+    "wordpress": {
+      "baseUrl": null,
+      "username": null,
+      "appPassword": null
+    },
+    "metadata": {},
+    "siteId": "quota_test_1774186969525",
+    "name": "Quota Test"
+  },
+  {
+    "enabled": true,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 50,
+    "hourlyArticleLimit": 3,
+    "language": "tr",
+    "niche": null,
+    "wordpress": {
+      "baseUrl": "https://test.com",
+      "username": "admin",
+      "appPassword": "supersecret"
+    },
+    "metadata": {},
+    "siteId": "api_site_1774187154368",
+    "name": "API Test Site",
+    "baseUrl": "https://test.com"
+  },
+  {
+    "enabled": false,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 25,
+    "hourlyArticleLimit": 3,
+    "language": "tr",
+    "niche": "jewelry",
+    "wordpress": {
+      "baseUrl": "https://test.com",
+      "username": "admin",
+      "appPassword": "secret123"
+    },
+    "metadata": {},
+    "siteId": "test_site_1774187856160",
+    "name": "Test Site",
+    "baseUrl": "https://test.com"
+  },
+  {
+    "enabled": true,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 5,
+    "hourlyArticleLimit": 2,
+    "language": "tr",
+    "niche": null,
+    "wordpress": {
+      "baseUrl": null,
+      "username": null,
+      "appPassword": null
+    },
+    "metadata": {},
+    "siteId": "quota_test_1774188321926",
+    "name": "Quota Test"
+  },
+  {
+    "enabled": false,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 25,
+    "hourlyArticleLimit": 3,
+    "language": "tr",
+    "niche": "jewelry",
+    "wordpress": {
+      "baseUrl": "https://test.com",
+      "username": "admin",
+      "appPassword": "secret123"
+    },
+    "metadata": {},
+    "siteId": "test_site_1774188495785",
+    "name": "Test Site",
+    "baseUrl": "https://test.com"
+  },
+  {
+    "enabled": true,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 5,
+    "hourlyArticleLimit": 2,
+    "language": "tr",
+    "niche": null,
+    "wordpress": {
+      "baseUrl": null,
+      "username": null,
+      "appPassword": null
+    },
+    "metadata": {},
+    "siteId": "quota_test_1774188495986",
+    "name": "Quota Test"
+  },
+  {
+    "enabled": true,
+    "publishEnabled": false,
+    "gscEnabled": false,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 5,
+    "hourlyArticleLimit": 2,
+    "language": "tr",
+    "niche": null,
+    "wordpress": {
+      "baseUrl": null,
+      "username": null,
+      "appPassword": null
+    },
+    "metadata": {},
+    "siteId": "ms_test_a_1774188496185",
+    "name": "Site A"
+  },
+  {
+    "enabled": true,
+    "publishEnabled": false,
+    "gscEnabled": false,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 5,
+    "hourlyArticleLimit": 2,
+    "language": "tr",
+    "niche": null,
+    "wordpress": {
+      "baseUrl": null,
+      "username": null,
+      "appPassword": null
+    },
+    "metadata": {},
+    "siteId": "ms_test_b_1774188496185",
+    "name": "Site B"
+  },
+  {
+    "enabled": true,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 50,
+    "hourlyArticleLimit": 3,
+    "language": "tr",
+    "niche": null,
+    "wordpress": {
+      "baseUrl": "https://test.com",
+      "username": "admin",
+      "appPassword": "supersecret"
+    },
+    "metadata": {},
+    "siteId": "api_site_1774188866586",
+    "name": "API Test Site",
+    "baseUrl": "https://test.com"
+  },
+  {
+    "enabled": false,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 25,
+    "hourlyArticleLimit": 3,
+    "language": "tr",
+    "niche": "jewelry",
+    "wordpress": {
+      "baseUrl": "https://test.com",
+      "username": "admin",
+      "appPassword": "secret123"
+    },
+    "metadata": {},
+    "siteId": "test_site_1774196148454",
+    "name": "Test Site",
+    "baseUrl": "https://test.com"
+  },
+  {
+    "enabled": true,
+    "publishEnabled": false,
+    "gscEnabled": true,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 5,
+    "hourlyArticleLimit": 2,
+    "language": "tr",
+    "niche": null,
+    "wordpress": {
+      "baseUrl": null,
+      "username": null,
+      "appPassword": null
+    },
+    "metadata": {},
+    "siteId": "quota_test_1774196148634",
+    "name": "Quota Test"
+  },
+  {
+    "enabled": true,
+    "publishEnabled": false,
+    "gscEnabled": false,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 5,
+    "hourlyArticleLimit": 2,
+    "language": "tr",
+    "niche": null,
+    "wordpress": {
+      "baseUrl": null,
+      "username": null,
+      "appPassword": null
+    },
+    "metadata": {},
+    "siteId": "ms_test_a_1774196148825",
+    "name": "Site A"
+  },
+  {
+    "enabled": true,
+    "publishEnabled": false,
+    "gscEnabled": false,
+    "campaignEnabled": false,
+    "safeMode": true,
+    "dailyArticleLimit": 5,
+    "hourlyArticleLimit": 2,
+    "language": "tr",
+    "niche": null,
+    "wordpress": {
+      "baseUrl": null,
+      "username": null,
+      "appPassword": null
+    },
+    "metadata": {},
+    "siteId": "ms_test_b_1774196148825",
+    "name": "Site B"
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "strengths": [
+    "Clear, logical header structure follows SEO best practices with proper H1-H3 hierarchy",
+    "Good use of Turkish translation alongside English terms (SEO = Arama Motoru Optimizasyonu) for local audience",
+    "Professional tone that balances technical accuracy with accessibility for general users"
+  ],
+  "weaknesses": [
+    "Article cuts off mid-sentence in 'Web Sitesi Sıralama Faktörleri' section, creating incomplete content",
+    "Missing primary keyword 'seo nedir' in H1 and early content - only appears in title",
+    "Vague claims about '200+ factors' and algorithm details without supporting evidence or sources"
+  ],
+  "repeatedSections": [
+    "SEO definition concepts overlap between 'SEO Açılımı ve Temel Kavramlar' and 'Dijital Pazarlamadaki Yeri'"
+  ],
+  "factualRiskFlags": [
+    "Claim about Google using '200+ factors' is commonly cited but not officially verified",
+    "Statement about SEO being critical for 'budget-limited small businesses' lacks nuance about competition levels"
+  ],
+  "improvementActions": [
+    {
+      "priority": "high",
+      "action": "Add 'seo nedir' keyword naturally in the first paragraph and H1",
+      "target": "H1 and opening paragraph of first section",
+      "expectedImpact": "seo score"
+    },
+    {
+      "priority": "high",
+      "action": "Complete the truncated content in ranking factors section",
+      "target": "Web Sitesi Sıralama Faktörleri section",
+      "expectedImpact": "usefulness and structure scores"
+    },
+    {
+      "priority": "medium",
+      "action": "Add specific examples and actionable tips instead of general concepts",
+      "target": "All H3 sections",
+      "expectedImpact": "usefulness score"
+    }
+  ]
+}

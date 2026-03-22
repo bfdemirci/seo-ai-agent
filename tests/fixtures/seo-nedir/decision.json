@@ -1,0 +1,14 @@
+{
+  "action": "optimize",
+  "targets": [
+    "factual",
+    "repetition",
+    "completeness"
+  ],
+  "shouldIterate": true,
+  "reason": "Hard block triggered, structural incompleteness, factual risk flags, high priority actions pending, repeated sections detected, score below threshold (86)",
+  "confidence": 0.64,
+  "priority": "low",
+  "nextAgent": "targetedOptimizer",
+  "stopReason": null
+}

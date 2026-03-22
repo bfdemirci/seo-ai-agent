@@ -1,0 +1,33 @@
+# H1: SEO Nedir? Arama Motoru Optimizasyonu Rehberi
+
+## H2: SEO'nun Tanımı ve Anlamı
+### H3: SEO Açılımı ve Temel Kavramlar
+### H3: Dijital Pazarlamadaki Yeri
+
+## H2: SEO Nasıl Çalışır?
+### H3: Arama Motorlarının İşleyiş Mantığı
+### H3: Web Sitesi Sıralama Faktörleri
+
+## H2: SEO'nun Önemi ve Faydaları
+### H3: İşletmeler İçin SEO Avantajları
+### H3: Organik Trafik ve Maliyet Etkinliği
+
+## H2: SEO Türleri ve Ana Bileşenleri
+### H3: Teknik, İçerik ve Dış SEO
+### H3: Anahtar Kelime Araştırması
+
+## H2: SEO Stratejisi Nasıl Oluşturulur?
+### H3: Temel SEO Adımları
+### H3: Başlangıç İçin Pratik İpuçları
+
+## H2: SEO Sonuçları ve Ölçüm Yöntemleri
+
+## FAQ Bölümü:
+- SEO sonuçları ne kadar sürede görülür?
+- SEO yapmak için teknik bilgi gerekir mi?
+- Ücretsiz SEO araçları hangileridir?
+- SEO ile Google Ads arasındaki fark nedir?
+- Mobil SEO neden önemlidir?
+
+## Sonuç
+SEO'yu öğrenmek ve uygulamak, dijital dünyada görünürlüğünüzü artırmanın en etkili yollarından biridir.

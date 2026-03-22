@@ -1,0 +1,2032 @@
+[
+  {
+    "runId": "campaign_test-site_1774196147143_bazuv",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T16:15:46.641Z",
+    "finishedAt": "2026-03-22T16:15:47.143Z",
+    "durationMs": 502,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 2,
+      "created": 0,
+      "published": 0,
+      "failed": 2
+    },
+    "error": "all_failed"
+  },
+  {
+    "runId": "campaign_site-B_1774196146640_ubdga",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T16:15:46.638Z",
+    "finishedAt": "2026-03-22T16:15:46.640Z",
+    "durationMs": 2,
+    "summary": {
+      "siteId": "site-B",
+      "totalGenerated": 1,
+      "created": 1,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_site-A_1774196146636_ki8v9",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T16:15:46.634Z",
+    "finishedAt": "2026-03-22T16:15:46.636Z",
+    "durationMs": 2,
+    "summary": {
+      "siteId": "site-A",
+      "totalGenerated": 1,
+      "created": 1,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774196146632_84ecy",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T16:15:45.621Z",
+    "finishedAt": "2026-03-22T16:15:46.632Z",
+    "durationMs": 1011,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 3,
+      "created": 3,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774196145620_igpvw",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T16:15:44.104Z",
+    "finishedAt": "2026-03-22T16:15:45.620Z",
+    "durationMs": 1516,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 4,
+      "created": 4,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "api_test_run_1774196143911",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T16:15:43.911Z",
+    "finishedAt": "2026-03-22T16:15:43.911Z",
+    "durationMs": 456,
+    "summary": {
+      "gsc": {
+        "total": 2,
+        "success": 1,
+        "skipped": 1,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 2,
+        "noAction": 1,
+        "optimize": 1,
+        "refresh": 0,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 1,
+        "executed": 1,
+        "skipped": 1,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_4_1774196143652",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T16:15:43.652Z",
+    "finishedAt": "2026-03-22T16:15:43.653Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_3_1774196143652",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T16:15:43.652Z",
+    "finishedAt": "2026-03-22T16:15:43.652Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_2_1774196143652",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T16:15:43.652Z",
+    "finishedAt": "2026-03-22T16:15:43.652Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_1_1774196143652",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T16:15:43.652Z",
+    "finishedAt": "2026-03-22T16:15:43.652Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_0_1774196143651",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T16:15:43.651Z",
+    "finishedAt": "2026-03-22T16:15:43.651Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "test_run_1774196143649",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T16:15:43.649Z",
+    "finishedAt": "2026-03-22T16:15:43.650Z",
+    "durationMs": 123,
+    "summary": {
+      "gsc": {
+        "total": 5,
+        "success": 3,
+        "skipped": 2,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 5,
+        "noAction": 3,
+        "optimize": 1,
+        "refresh": 1,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 2,
+        "executed": 2,
+        "skipped": 3,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "run_1774196141382_z6ug8w",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T16:14:15.241Z",
+    "finishedAt": "2026-03-22T16:15:41.381Z",
+    "durationMs": 86141,
+    "summary": {
+      "gsc": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 0,
+        "noAction": 0,
+        "optimize": 0,
+        "refresh": 0,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 0,
+        "executed": 0,
+        "skipped": 0,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0,
+        "skippedByPositionGuard": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "multi_site_1774188866159_o60y",
+    "type": "multi_site_cycle",
+    "startedAt": "2026-03-22T14:08:16.186Z",
+    "finishedAt": "2026-03-22T14:14:26.158Z",
+    "durationMs": 369972,
+    "summary": {
+      "totalSites": 9,
+      "processedSites": 9,
+      "failedSites": 0,
+      "items": [
+        {
+          "siteId": "quota_test_1774185910475",
+          "ok": true
+        },
+        {
+          "siteId": "api_site_1774185946667",
+          "ok": true
+        },
+        {
+          "siteId": "quota_test_1774186757711",
+          "ok": true
+        },
+        {
+          "siteId": "quota_test_1774186969525",
+          "ok": true
+        },
+        {
+          "siteId": "api_site_1774187154368",
+          "ok": true
+        },
+        {
+          "siteId": "quota_test_1774188321926",
+          "ok": true
+        },
+        {
+          "siteId": "quota_test_1774188495986",
+          "ok": true
+        },
+        {
+          "siteId": "ms_test_a_1774188496185",
+          "ok": true
+        },
+        {
+          "siteId": "ms_test_b_1774188496185",
+          "ok": true
+        }
+      ]
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774188494361_8sieo",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T14:08:13.859Z",
+    "finishedAt": "2026-03-22T14:08:14.361Z",
+    "durationMs": 502,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 2,
+      "created": 0,
+      "published": 0,
+      "failed": 2
+    },
+    "error": "all_failed"
+  },
+  {
+    "runId": "campaign_site-B_1774188493857_t2c41",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T14:08:13.855Z",
+    "finishedAt": "2026-03-22T14:08:13.857Z",
+    "durationMs": 2,
+    "summary": {
+      "siteId": "site-B",
+      "totalGenerated": 1,
+      "created": 1,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_site-A_1774188493854_r37tg",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T14:08:13.853Z",
+    "finishedAt": "2026-03-22T14:08:13.854Z",
+    "durationMs": 1,
+    "summary": {
+      "siteId": "site-A",
+      "totalGenerated": 1,
+      "created": 1,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774188493852_29zu0",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T14:08:12.842Z",
+    "finishedAt": "2026-03-22T14:08:13.852Z",
+    "durationMs": 1010,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 3,
+      "created": 3,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774188492841_jll2o",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T14:08:11.325Z",
+    "finishedAt": "2026-03-22T14:08:12.841Z",
+    "durationMs": 1516,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 4,
+      "created": 4,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "api_test_run_1774188491128",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:08:11.128Z",
+    "finishedAt": "2026-03-22T14:08:11.128Z",
+    "durationMs": 456,
+    "summary": {
+      "gsc": {
+        "total": 2,
+        "success": 1,
+        "skipped": 1,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 2,
+        "noAction": 1,
+        "optimize": 1,
+        "refresh": 0,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 1,
+        "executed": 1,
+        "skipped": 1,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_4_1774188490867",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:08:10.867Z",
+    "finishedAt": "2026-03-22T14:08:10.867Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_3_1774188490867",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:08:10.867Z",
+    "finishedAt": "2026-03-22T14:08:10.867Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_2_1774188490867",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:08:10.867Z",
+    "finishedAt": "2026-03-22T14:08:10.867Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_1_1774188490866",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:08:10.866Z",
+    "finishedAt": "2026-03-22T14:08:10.866Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_0_1774188490866",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:08:10.866Z",
+    "finishedAt": "2026-03-22T14:08:10.866Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "test_run_1774188490864",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:08:10.864Z",
+    "finishedAt": "2026-03-22T14:08:10.864Z",
+    "durationMs": 123,
+    "summary": {
+      "gsc": {
+        "total": 5,
+        "success": 3,
+        "skipped": 2,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 5,
+        "noAction": 3,
+        "optimize": 1,
+        "refresh": 1,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 2,
+        "executed": 2,
+        "skipped": 3,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "run_1774188488146_lcpliu",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:06:53.764Z",
+    "finishedAt": "2026-03-22T14:08:08.146Z",
+    "durationMs": 74382,
+    "summary": {
+      "gsc": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 0,
+        "noAction": 0,
+        "optimize": 0,
+        "refresh": 0,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 0,
+        "executed": 0,
+        "skipped": 0,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0,
+        "skippedByPositionGuard": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_4_1774188375761",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:06:15.761Z",
+    "finishedAt": "2026-03-22T14:06:15.761Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_3_1774188375761",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:06:15.761Z",
+    "finishedAt": "2026-03-22T14:06:15.761Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_2_1774188375760",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:06:15.760Z",
+    "finishedAt": "2026-03-22T14:06:15.760Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_1_1774188375760",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:06:15.760Z",
+    "finishedAt": "2026-03-22T14:06:15.760Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_0_1774188375760",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:06:15.760Z",
+    "finishedAt": "2026-03-22T14:06:15.760Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "test_run_1774188375757",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:06:15.757Z",
+    "finishedAt": "2026-03-22T14:06:15.758Z",
+    "durationMs": 123,
+    "summary": {
+      "gsc": {
+        "total": 5,
+        "success": 3,
+        "skipped": 2,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 5,
+        "noAction": 3,
+        "optimize": 1,
+        "refresh": 1,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 2,
+        "executed": 2,
+        "skipped": 3,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_4_1774188337200",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:05:37.200Z",
+    "finishedAt": "2026-03-22T14:05:37.200Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_3_1774188337199",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:05:37.199Z",
+    "finishedAt": "2026-03-22T14:05:37.199Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_2_1774188337199",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:05:37.199Z",
+    "finishedAt": "2026-03-22T14:05:37.199Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_1_1774188337199",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:05:37.199Z",
+    "finishedAt": "2026-03-22T14:05:37.199Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_0_1774188337199",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:05:37.199Z",
+    "finishedAt": "2026-03-22T14:05:37.199Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "test_run_1774188337196",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:05:37.196Z",
+    "finishedAt": "2026-03-22T14:05:37.197Z",
+    "durationMs": 123,
+    "summary": {
+      "gsc": {
+        "total": 5,
+        "success": 3,
+        "skipped": 2,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 5,
+        "noAction": 3,
+        "optimize": 1,
+        "refresh": 1,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 2,
+        "executed": 2,
+        "skipped": 3,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_4_1774188321738",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:05:21.738Z",
+    "finishedAt": "2026-03-22T14:05:21.738Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_3_1774188321738",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:05:21.738Z",
+    "finishedAt": "2026-03-22T14:05:21.738Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_2_1774188321738",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:05:21.738Z",
+    "finishedAt": "2026-03-22T14:05:21.738Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_1_1774188321737",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:05:21.737Z",
+    "finishedAt": "2026-03-22T14:05:21.737Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_0_1774188321733",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:05:21.733Z",
+    "finishedAt": "2026-03-22T14:05:21.733Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "test_run_1774188321730",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T14:05:21.730Z",
+    "finishedAt": "2026-03-22T14:05:21.731Z",
+    "durationMs": 123,
+    "summary": {
+      "gsc": {
+        "total": 5,
+        "success": 3,
+        "skipped": 2,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 5,
+        "noAction": 3,
+        "optimize": 1,
+        "refresh": 1,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 2,
+        "executed": 2,
+        "skipped": 3,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_4_1774187761941",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:56:01.941Z",
+    "finishedAt": "2026-03-22T13:56:01.941Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_3_1774187761941",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:56:01.941Z",
+    "finishedAt": "2026-03-22T13:56:01.941Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_2_1774187761941",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:56:01.941Z",
+    "finishedAt": "2026-03-22T13:56:01.941Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_1_1774187761940",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:56:01.940Z",
+    "finishedAt": "2026-03-22T13:56:01.940Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_0_1774187761940",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:56:01.940Z",
+    "finishedAt": "2026-03-22T13:56:01.940Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "test_run_1774187761937",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:56:01.937Z",
+    "finishedAt": "2026-03-22T13:56:01.938Z",
+    "durationMs": 123,
+    "summary": {
+      "gsc": {
+        "total": 5,
+        "success": 3,
+        "skipped": 2,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 5,
+        "noAction": 3,
+        "optimize": 1,
+        "refresh": 1,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 2,
+        "executed": 2,
+        "skipped": 3,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "run_1774187759041_yyg4wn",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:54:35.436Z",
+    "finishedAt": "2026-03-22T13:55:59.041Z",
+    "durationMs": 83605,
+    "summary": {
+      "gsc": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 0,
+        "noAction": 0,
+        "optimize": 0,
+        "refresh": 0,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 0,
+        "executed": 0,
+        "skipped": 0,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0,
+        "skippedByPositionGuard": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "multi_site_1774187153965_kio2",
+    "type": "multi_site_cycle",
+    "startedAt": "2026-03-22T13:42:49.720Z",
+    "finishedAt": "2026-03-22T13:45:53.965Z",
+    "durationMs": 184245,
+    "summary": {
+      "totalSites": 10,
+      "processedSites": 10,
+      "failedSites": 0,
+      "items": [
+        {
+          "siteId": "quota_test_1774185910475",
+          "ok": true
+        },
+        {
+          "siteId": "ms_test_a_1774185910688",
+          "ok": true
+        },
+        {
+          "siteId": "ms_test_b_1774185910688",
+          "ok": true
+        },
+        {
+          "siteId": "api_site_1774185946667",
+          "ok": true
+        },
+        {
+          "siteId": "quota_test_1774186757711",
+          "ok": true
+        },
+        {
+          "siteId": "ms_test_a_1774186757931",
+          "ok": true
+        },
+        {
+          "siteId": "ms_test_b_1774186757931",
+          "ok": true
+        },
+        {
+          "siteId": "quota_test_1774186969525",
+          "ok": true
+        },
+        {
+          "siteId": "ms_test_a_1774186969719",
+          "ok": true
+        },
+        {
+          "siteId": "ms_test_b_1774186969719",
+          "ok": true
+        }
+      ]
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774186968012_ht8qw",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:42:47.509Z",
+    "finishedAt": "2026-03-22T13:42:48.012Z",
+    "durationMs": 503,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 2,
+      "created": 0,
+      "published": 0,
+      "failed": 2
+    },
+    "error": "all_failed"
+  },
+  {
+    "runId": "campaign_site-B_1774186967507_xiizt",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:42:47.505Z",
+    "finishedAt": "2026-03-22T13:42:47.507Z",
+    "durationMs": 2,
+    "summary": {
+      "siteId": "site-B",
+      "totalGenerated": 1,
+      "created": 1,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_site-A_1774186967503_ezsyj",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:42:47.500Z",
+    "finishedAt": "2026-03-22T13:42:47.503Z",
+    "durationMs": 3,
+    "summary": {
+      "siteId": "site-A",
+      "totalGenerated": 1,
+      "created": 1,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774186967497_vym3h",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:42:46.483Z",
+    "finishedAt": "2026-03-22T13:42:47.497Z",
+    "durationMs": 1014,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 3,
+      "created": 3,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774186966480_rknmy",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:42:44.959Z",
+    "finishedAt": "2026-03-22T13:42:46.480Z",
+    "durationMs": 1521,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 4,
+      "created": 4,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "api_test_run_1774186964762",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:42:44.762Z",
+    "finishedAt": "2026-03-22T13:42:44.762Z",
+    "durationMs": 456,
+    "summary": {
+      "gsc": {
+        "total": 2,
+        "success": 1,
+        "skipped": 1,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 2,
+        "noAction": 1,
+        "optimize": 1,
+        "refresh": 0,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 1,
+        "executed": 1,
+        "skipped": 1,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_4_1774186964497",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:42:44.497Z",
+    "finishedAt": "2026-03-22T13:42:44.497Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_3_1774186964496",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:42:44.496Z",
+    "finishedAt": "2026-03-22T13:42:44.496Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_2_1774186964496",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:42:44.496Z",
+    "finishedAt": "2026-03-22T13:42:44.496Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_1_1774186964496",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:42:44.496Z",
+    "finishedAt": "2026-03-22T13:42:44.496Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_0_1774186964495",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:42:44.495Z",
+    "finishedAt": "2026-03-22T13:42:44.495Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "test_run_1774186964493",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:42:44.493Z",
+    "finishedAt": "2026-03-22T13:42:44.494Z",
+    "durationMs": 123,
+    "summary": {
+      "gsc": {
+        "total": 5,
+        "success": 3,
+        "skipped": 2,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 5,
+        "noAction": 3,
+        "optimize": 1,
+        "refresh": 1,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 2,
+        "executed": 2,
+        "skipped": 3,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "run_1774186962186_vzsm8z",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:42:01.273Z",
+    "finishedAt": "2026-03-22T13:42:42.186Z",
+    "durationMs": 40913,
+    "summary": {
+      "gsc": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 0,
+        "noAction": 0,
+        "optimize": 0,
+        "refresh": 0,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 0,
+        "executed": 0,
+        "skipped": 0,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0,
+        "skippedByPositionGuard": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774186756044_1584s",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:39:15.541Z",
+    "finishedAt": "2026-03-22T13:39:16.044Z",
+    "durationMs": 503,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 2,
+      "created": 0,
+      "published": 0,
+      "failed": 2
+    },
+    "error": "all_failed"
+  },
+  {
+    "runId": "campaign_site-B_1774186755537_4du7m",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:39:15.532Z",
+    "finishedAt": "2026-03-22T13:39:15.536Z",
+    "durationMs": 4,
+    "summary": {
+      "siteId": "site-B",
+      "totalGenerated": 1,
+      "created": 1,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_site-A_1774186755531_v8q13",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:39:15.529Z",
+    "finishedAt": "2026-03-22T13:39:15.531Z",
+    "durationMs": 2,
+    "summary": {
+      "siteId": "site-A",
+      "totalGenerated": 1,
+      "created": 1,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774186755526_aok6q",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:39:14.514Z",
+    "finishedAt": "2026-03-22T13:39:15.526Z",
+    "durationMs": 1012,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 3,
+      "created": 3,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774186754512_h3ajg",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:39:12.994Z",
+    "finishedAt": "2026-03-22T13:39:14.512Z",
+    "durationMs": 1518,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 4,
+      "created": 4,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "api_test_run_1774186752796",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:39:12.796Z",
+    "finishedAt": "2026-03-22T13:39:12.796Z",
+    "durationMs": 456,
+    "summary": {
+      "gsc": {
+        "total": 2,
+        "success": 1,
+        "skipped": 1,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 2,
+        "noAction": 1,
+        "optimize": 1,
+        "refresh": 0,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 1,
+        "executed": 1,
+        "skipped": 1,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_4_1774186752530",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:39:12.530Z",
+    "finishedAt": "2026-03-22T13:39:12.530Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_3_1774186752530",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:39:12.530Z",
+    "finishedAt": "2026-03-22T13:39:12.530Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_2_1774186752529",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:39:12.529Z",
+    "finishedAt": "2026-03-22T13:39:12.529Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_1_1774186752529",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:39:12.529Z",
+    "finishedAt": "2026-03-22T13:39:12.529Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_0_1774186752529",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:39:12.529Z",
+    "finishedAt": "2026-03-22T13:39:12.529Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "test_run_1774186752527",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:39:12.527Z",
+    "finishedAt": "2026-03-22T13:39:12.527Z",
+    "durationMs": 123,
+    "summary": {
+      "gsc": {
+        "total": 5,
+        "success": 3,
+        "skipped": 2,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 5,
+        "noAction": 3,
+        "optimize": 1,
+        "refresh": 1,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 2,
+        "executed": 2,
+        "skipped": 3,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "run_1774186750003_p8e564",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:38:31.937Z",
+    "finishedAt": "2026-03-22T13:39:10.003Z",
+    "durationMs": 38066,
+    "summary": {
+      "gsc": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 0,
+        "noAction": 0,
+        "optimize": 0,
+        "refresh": 0,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 0,
+        "executed": 0,
+        "skipped": 0,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0,
+        "skippedByPositionGuard": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "multi_site_1774185946329_t4gy",
+    "type": "multi_site_cycle",
+    "startedAt": "2026-03-22T13:25:10.689Z",
+    "finishedAt": "2026-03-22T13:25:46.329Z",
+    "durationMs": 35640,
+    "summary": {
+      "totalSites": 3,
+      "processedSites": 3,
+      "failedSites": 0,
+      "items": [
+        {
+          "siteId": "quota_test_1774185910475",
+          "ok": true
+        },
+        {
+          "siteId": "ms_test_a_1774185910688",
+          "ok": true
+        },
+        {
+          "siteId": "ms_test_b_1774185910688",
+          "ok": true
+        }
+      ]
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774185751868_1mxev",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:22:31.364Z",
+    "finishedAt": "2026-03-22T13:22:31.868Z",
+    "durationMs": 504,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 2,
+      "created": 0,
+      "published": 0,
+      "failed": 2
+    },
+    "error": "all_failed"
+  },
+  {
+    "runId": "campaign_site-B_1774185751363_1l2o1",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:22:31.361Z",
+    "finishedAt": "2026-03-22T13:22:31.363Z",
+    "durationMs": 2,
+    "summary": {
+      "siteId": "site-B",
+      "totalGenerated": 1,
+      "created": 1,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_site-A_1774185751360_ozdug",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:22:31.358Z",
+    "finishedAt": "2026-03-22T13:22:31.360Z",
+    "durationMs": 2,
+    "summary": {
+      "siteId": "site-A",
+      "totalGenerated": 1,
+      "created": 1,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774185751356_rxq1l",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:22:30.345Z",
+    "finishedAt": "2026-03-22T13:22:31.356Z",
+    "durationMs": 1011,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 3,
+      "created": 3,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774185750343_5zgfg",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:22:28.826Z",
+    "finishedAt": "2026-03-22T13:22:30.343Z",
+    "durationMs": 1517,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 4,
+      "created": 4,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "api_test_run_1774185748594",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:22:28.594Z",
+    "finishedAt": "2026-03-22T13:22:28.594Z",
+    "durationMs": 456,
+    "summary": {
+      "gsc": {
+        "total": 2,
+        "success": 1,
+        "skipped": 1,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 2,
+        "noAction": 1,
+        "optimize": 1,
+        "refresh": 0,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 1,
+        "executed": 1,
+        "skipped": 1,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_4_1774185748285",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:22:28.285Z",
+    "finishedAt": "2026-03-22T13:22:28.285Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_3_1774185748285",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:22:28.285Z",
+    "finishedAt": "2026-03-22T13:22:28.285Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_2_1774185748284",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:22:28.284Z",
+    "finishedAt": "2026-03-22T13:22:28.284Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_1_1774185748284",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:22:28.284Z",
+    "finishedAt": "2026-03-22T13:22:28.284Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_0_1774185748284",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:22:28.284Z",
+    "finishedAt": "2026-03-22T13:22:28.284Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  },
+  {
+    "runId": "test_run_1774185748281",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:22:28.281Z",
+    "finishedAt": "2026-03-22T13:22:28.282Z",
+    "durationMs": 123,
+    "summary": {
+      "gsc": {
+        "total": 5,
+        "success": 3,
+        "skipped": 2,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 5,
+        "noAction": 3,
+        "optimize": 1,
+        "refresh": 1,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 2,
+        "executed": 2,
+        "skipped": 3,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "run_1774185745546_hecfpt",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:20:56.877Z",
+    "finishedAt": "2026-03-22T13:22:25.546Z",
+    "durationMs": 88669,
+    "summary": {
+      "gsc": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 0,
+        "noAction": 0,
+        "optimize": 0,
+        "refresh": 0,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 0,
+        "executed": 0,
+        "skipped": 0,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774185382820_nkyzx",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:16:22.317Z",
+    "finishedAt": "2026-03-22T13:16:22.820Z",
+    "durationMs": 503,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 2,
+      "created": 0,
+      "published": 0,
+      "failed": 2
+    },
+    "error": "all_failed"
+  },
+  {
+    "runId": "campaign_site-B_1774185382316_8kn6o",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:16:22.314Z",
+    "finishedAt": "2026-03-22T13:16:22.316Z",
+    "durationMs": 2,
+    "summary": {
+      "siteId": "site-B",
+      "totalGenerated": 1,
+      "created": 1,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_site-A_1774185382313_sazdr",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:16:22.312Z",
+    "finishedAt": "2026-03-22T13:16:22.313Z",
+    "durationMs": 1,
+    "summary": {
+      "siteId": "site-A",
+      "totalGenerated": 1,
+      "created": 1,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774185382310_clp9v",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:16:21.299Z",
+    "finishedAt": "2026-03-22T13:16:22.310Z",
+    "durationMs": 1011,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 3,
+      "created": 3,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "campaign_test-site_1774185381293_wbzc4",
+    "type": "campaign_run",
+    "startedAt": "2026-03-22T13:16:19.780Z",
+    "finishedAt": "2026-03-22T13:16:21.293Z",
+    "durationMs": 1513,
+    "summary": {
+      "siteId": "test-site",
+      "totalGenerated": 4,
+      "created": 4,
+      "published": 0,
+      "failed": 0
+    },
+    "error": null
+  },
+  {
+    "runId": "api_test_run_1774185379578",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:16:19.578Z",
+    "finishedAt": "2026-03-22T13:16:19.578Z",
+    "durationMs": 456,
+    "summary": {
+      "gsc": {
+        "total": 2,
+        "success": 1,
+        "skipped": 1,
+        "failed": 0
+      },
+      "decisions": {
+        "total": 2,
+        "noAction": 1,
+        "optimize": 1,
+        "refresh": 0,
+        "rewrite": 0,
+        "delete": 0,
+        "kill": 0,
+        "failed": 0
+      },
+      "execution": {
+        "total": 1,
+        "executed": 1,
+        "skipped": 1,
+        "failed": 0
+      },
+      "publish": {
+        "total": 0,
+        "success": 0,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "runId": "bulk_4_1774185379306",
+    "type": "scheduler_cycle",
+    "startedAt": "2026-03-22T13:16:19.306Z",
+    "finishedAt": "2026-03-22T13:16:19.306Z",
+    "durationMs": 1,
+    "summary": {
+      "gsc": {},
+      "decisions": {},
+      "execution": {},
+      "publish": {}
+    },
+    "error": null
+  }
+]

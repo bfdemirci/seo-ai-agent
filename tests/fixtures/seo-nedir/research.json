@@ -1,0 +1,120 @@
+{
+  "keyword": "seo nedir",
+  "intent": {
+    "primary": "informational",
+    "secondary": [
+      "educational",
+      "definitional"
+    ],
+    "expectations": [
+      "Clear definition of SEO",
+      "Basic SEO concepts explanation",
+      "Why SEO is important",
+      "How SEO works fundamentally",
+      "SEO benefits and purpose",
+      "Simple examples or analogies"
+    ],
+    "contentAngle": "Beginner-friendly comprehensive guide explaining what SEO is, why it matters, and how it helps websites get found in search engines",
+    "_raw": {
+      "text": "{\n  \"primary\": \"informational\",\n  \"secondary\": [\"educational\", \"definitional\"],\n  \"expectations\": [\"Clear definition of SEO\", \"Basic SEO concepts explanation\", \"Why SEO is important\", \"How SEO works fundamentally\", \"SEO benefits and purpose\", \"Simple examples or analogies\"],\n  \"contentAngle\": \"Beginner-friendly comprehensive guide explaining what SEO is, why it matters, and how it helps websites get found in search engines\"\n}",
+      "inputTokens": 132,
+      "outputTokens": 111,
+      "model": "claude-sonnet-4-20250514",
+      "durationMs": 3698
+    }
+  },
+  "serp": {
+    "topResults": [
+      {
+        "title": "Arama Motoru Optimizasyonu (SEO) Başlangıç Kılavuzu",
+        "link": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=tr",
+        "snippet": "SEO, bir sonraki adımı atmak ve sitenizin Arama'daki varlığını iyileştirmek için çalışmaktır. Bu kılavuz, sitenizde yapabileceğiniz en yaygın ve etkili ..."
+      },
+      {
+        "title": "Arama Motoru Optimizasyonu (Seo) Nedir?",
+        "link": "https://duzce.edu.tr/Sayfa/c0ad/seo-nedir",
+        "snippet": "Arama motoru optimizasyonu, İngilizce karşılığı “Search Engine Optimization” olarak geçen ve kısaltması SEO olan online bir pazarlama yöntemidir."
+      },
+      {
+        "title": "SEO Nedir ve Nasıl Yapılır?",
+        "link": "https://www.sempeak.com/seo",
+        "snippet": "SEO, web sitenizin arama motoru sonuçlarında daha iyi pozisyona gelmesi için yapılan çalışmaların bütünüdür. Yapılacak SEO çalışmaları ile web sitenizin arama ..."
+      },
+      {
+        "title": "Arama motoru optimizasyonu",
+        "link": "https://tr.wikipedia.org/wiki/Arama_motoru_optimizasyonu",
+        "snippet": "Arama motoru optimizasyonu (SEO), internet sitesine veya bir web sayfasına arama motorlarından gelen web trafiğinin kalitesini ve sayısını artırma sürecidir."
+      },
+      {
+        "title": "SEO uzmanı nedir? | Google Arama Merkezi | Documentation",
+        "link": "https://developers.google.com/search/docs/fundamentals/do-i-need-seo?hl=tr",
+        "snippet": "SEO, \"arama motoru optimizasyonu\" veya \"arama motoru optimize edici\" için kullanılan bir kısaltmadır. Bir SEO ile çalışma kararı, sitenizi geliştirip zaman ..."
+      }
+    ],
+    "peopleAlsoAsk": [],
+    "relatedSearches": [],
+    "commonHeadings": [
+      "SEO Nedir?",
+      "SEO Türleri"
+    ],
+    "patterns": [
+      "Tanım + rehber formatı",
+      "Soru-cevap yaklaşımı"
+    ],
+    "_raw": {
+      "text": "{\n  \"topResults\": [\"SEO Nedir? Search Engine Optimization Rehberi 2024\", \"SEO (Arama Motoru Optimizasyonu) Nedir ve Nasıl Yapılır?\", \"SEO Nedir? Kapsamlı SEO Rehberi ve İpuçları\"],\n  \"peopleAlsoAsk\": [\"SEO nasıl yapılır?\", \"SEO ne işe yarar?\"],\n  \"relatedSearches\": [\"seo nasıl yapılır\", \"seo teknikleri\"],\n  \"commonHeadings\": [\"SEO Nedir?\", \"SEO Türleri\"],\n  \"patterns\": [\"Tanım + rehber formatı\", \"Soru-cevap yaklaşımı\"]\n}",
+      "inputTokens": 172,
+      "outputTokens": 195,
+      "model": "claude-sonnet-4-20250514",
+      "durationMs": 4516
+    }
+  },
+  "semrush": {
+    "volume": 8100,
+    "keywordDifficulty": 0.24,
+    "cpc": "0.17",
+    "relatedKeywords": [],
+    "competitors": []
+  },
+  "synthesis": {
+    "suggestedHeadings": [
+      "SEO Nedir? (What is SEO?)",
+      "SEO Nasıl Çalışır? (How Does SEO Work?)",
+      "SEO Neden Önemlidir? (Why is SEO Important?)",
+      "SEO Türleri Nelerdir? (What are the Types of SEO?)",
+      "SEO'nun Faydaları (Benefits of SEO)",
+      "Temel SEO Kavramları (Basic SEO Concepts)",
+      "SEO İle İlgili Sık Sorulan Sorular (Frequently Asked Questions About SEO)",
+      "SEO'ya Nasıl Başlanır? (How to Get Started with SEO?)"
+    ],
+    "opportunities": [
+      "Create comprehensive beginner guide with simple analogies and examples",
+      "Target high-volume, low-difficulty keyword (8100 volume, 0.24 difficulty)",
+      "Focus on definitional content as primary search intent",
+      "Include practical examples to differentiate from existing generic definitions",
+      "Address related questions like 'SEO nasıl yapılır?' and 'SEO ne işe yarar?'",
+      "Leverage question-answer format that users expect",
+      "Build content cluster around SEO basics for Turkish audience"
+    ],
+    "gaps": [
+      "Most results focus on technical guides rather than simple explanations",
+      "Lack of real-world analogies to explain SEO concepts",
+      "Missing step-by-step beginner approach in existing content",
+      "No clear distinction between different SEO types for beginners",
+      "Limited practical examples showing before/after scenarios",
+      "Absence of common SEO myths and misconceptions section"
+    ],
+    "questionsToAnswer": [
+      "SEO tam olarak nedir ve ne anlama gelir?",
+      "SEO nasıl çalışır ve arama motorları nasıl karar verir?",
+      "SEO neden bu kadar önemlidir?",
+      "SEO yapmazsam ne olur?",
+      "SEO'nun temel bileşenleri nelerdir?",
+      "On-page ve Off-page SEO arasındaki fark nedir?",
+      "SEO sonuçlarını ne zaman görebilirim?",
+      "SEO ücretsiz midir yoksa para mı gerekir?",
+      "Küçük işletmeler için SEO neden önemlidir?",
+      "SEO ile Google Ads arasındaki fark nedir?"
+    ]
+  }
+}

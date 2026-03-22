@@ -1,0 +1,39 @@
+{
+  "runId": "run_1774182813675_a381p2",
+  "mode": "execute",
+  "startedAt": "2026-03-22T12:33:33.675Z",
+  "finishedAt": "2026-03-22T12:33:33.675Z",
+  "durationMs": 0,
+  "summary": {
+    "totalTargets": 1,
+    "healthy": 0,
+    "watch": 1,
+    "decaying": 0
+  },
+  "totals": {
+    "totalTargets": 1,
+    "healthy": 0,
+    "watch": 1,
+    "decaying": 0
+  },
+  "items": [
+    {
+      "keyword": "",
+      "status": "unknown",
+      "hasAnalytics": false,
+      "snapshotCount": 0,
+      "decayStatus": "watch",
+      "decayTypes": {
+        "ranking": false,
+        "ctr": false,
+        "clicks": false,
+        "impression": false,
+        "seasonal": false,
+        "insufficientData": true
+      },
+      "recommendedActionHint": "monitor",
+      "summary": "Performance declining — monitor closely",
+      "gscSummary": null
+    }
+  ]
+}

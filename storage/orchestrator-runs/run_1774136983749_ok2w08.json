@@ -1,0 +1,73 @@
+{
+  "runId": "run_1774136983749_ok2w08",
+  "mode": "execute",
+  "startedAt": "2026-03-21T23:49:43.749Z",
+  "finishedAt": "2026-03-21T23:49:43.751Z",
+  "durationMs": 2,
+  "summary": {
+    "totalTargets": 2,
+    "healthy": 0,
+    "watch": 2,
+    "decaying": 0
+  },
+  "totals": {
+    "totalTargets": 2,
+    "healthy": 0,
+    "watch": 2,
+    "decaying": 0
+  },
+  "items": [
+    {
+      "articleId": "art_1774136983313_hg81",
+      "keyword": "seo nedir",
+      "status": "finalized",
+      "hasAnalytics": false,
+      "snapshotCount": 0,
+      "decayStatus": "watch",
+      "decayTypes": {
+        "ranking": false,
+        "ctr": false,
+        "clicks": false,
+        "impression": false,
+        "seasonal": false,
+        "insufficientData": true
+      },
+      "recommendedActionHint": "monitor",
+      "summary": "Performance declining — monitor closely",
+      "gscSummary": {
+        "totalRows": 0,
+        "totalClicks": 0,
+        "totalImpressions": 0,
+        "avgCtr": 0,
+        "avgPosition": 0,
+        "latestDate": null
+      }
+    },
+    {
+      "articleId": "art_1774136982898_x6ol",
+      "keyword": "seo nedir",
+      "status": "finalized",
+      "hasAnalytics": true,
+      "snapshotCount": 2,
+      "decayStatus": "watch",
+      "decayTypes": {
+        "ranking": false,
+        "ctr": false,
+        "clicks": false,
+        "impression": false,
+        "seasonal": false,
+        "insufficientData": true
+      },
+      "recommendedActionHint": "monitor",
+      "summary": "Performance declining — monitor closely",
+      "gscSummary": {
+        "totalRows": 2,
+        "totalClicks": 170,
+        "totalImpressions": 4200,
+        "avgCtr": 0.040476,
+        "avgPosition": 6.9,
+        "latestDate": "2026-03-02"
+      }
+    }
+  ]
+}

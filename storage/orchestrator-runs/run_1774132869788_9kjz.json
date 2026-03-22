@@ -1,0 +1,39 @@
+{
+  "runId": "run_1774132869788_9kjz",
+  "mode": "execute",
+  "startedAt": "2026-03-21T22:41:09.788Z",
+  "finishedAt": "2026-03-21T22:41:09.788Z",
+  "durationMs": 0,
+  "summary": {
+    "totalTargets": 1,
+    "healthy": 0,
+    "watch": 1,
+    "decaying": 0
+  },
+  "totals": {
+    "totalTargets": 1,
+    "healthy": 0,
+    "watch": 1,
+    "decaying": 0
+  },
+  "items": [
+    {
+      "keyword": "",
+      "status": "watch",
+      "hasAnalytics": false,
+      "snapshotCount": 0,
+      "decayStatus": "watch",
+      "decayTypes": {
+        "ranking": false,
+        "ctr": false,
+        "clicks": false,
+        "impression": false,
+        "seasonal": false,
+        "insufficientData": true
+      },
+      "recommendedActionHint": "ignore",
+      "summary": "Not enough data to detect decay confidently.",
+      "gscSummary": null
+    }
+  ]
+}
