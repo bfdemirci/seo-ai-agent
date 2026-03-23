@@ -461,6 +461,53 @@ function toast(msg,t){
   setTimeout(function(){el.style.cssText='opacity:0;transition:opacity 300ms';setTimeout(function(){el.remove();},320);},3200);
 }
 document.getElementById('mOv').addEventListener('click',function(e){if(e.target===this)closeM();});
+
+async function srSearch(){
+  var kw=document.getElementById('srKw').value.trim();
+  if(!kw){toast('Keyword gir','e');return;}
+  var btn=document.getElementById('srBtn');
+  btn.disabled=true;btn.textContent='Aranıyor…';
+  var r=await api('GET','/seo-rush/keyword?keyword='+encodeURIComponent(kw));
+  btn.disabled=false;btn.textContent='Ara';
+  if(!r.success){toast((r.error&&r.error.message)||'Hata','e');return;}
+  var d=r.data;
+  var kdColor=d.keywordDifficulty>70?'var(--red)':d.keywordDifficulty>40?'var(--yellow)':'var(--green)';
+  var mock=d._mock?'<span style="color:var(--yellow);font-size:11px;margin-left:8px">(mock data)</span>':'';
+  var related=d.relatedKeywords&&d.relatedKeywords.length?
+    '<div style="margin-top:12px"><div class="stl">İlgili Keywordler</div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">'+
+    d.relatedKeywords.map(function(r){return '<span class="badge bb" style="cursor:pointer" onclick="document.getElementById(\'srKw\').value=\''+x(r.keyword)+'\'">'+x(r.keyword)+' ('+r.volume.toLocaleString()+')</span>';}).join('')+
+    '</div></div>':'';
+  document.getElementById('srSingle').innerHTML=
+    '<div class="card" style="margin-bottom:0">'+
+      '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">'+
+        '<div><div class="clbl">Hacim/ay</div><div class="cv" style="font-size:22px">'+d.volume.toLocaleString()+'</div></div>'+
+        '<div><div class="clbl">KD</div><div class="cv" style="font-size:22px;color:'+kdColor+'">'+d.keywordDifficulty+'</div></div>'+
+        '<div><div class="clbl">CPC</div><div class="cv" style="font-size:22px">$'+d.cpc.toFixed(2)+'</div></div>'+
+        '<div><div class="clbl">Rekabet</div><div class="cv" style="font-size:22px">'+(d.competition*100).toFixed(0)+'%</div></div>'+
+      '</div>'+related+mock+
+    '</div>';
+}
+
+async function srBulkSearch(){
+  var raw=document.getElementById('srBulkKw').value.trim();
+  if(!raw){toast('Keyword gir','e');return;}
+  var kws=raw.split('\n').map(function(k){return k.trim();}).filter(Boolean).slice(0,10);
+  var btn=document.getElementById('srBulkBtn');
+  btn.disabled=true;btn.textContent='Aranıyor…';
+  var r=await api('POST','/seo-rush/keyword/bulk',{keywords:kws});
+  btn.disabled=false;btn.textContent='Toplu Ara';
+  if(!r.success){toast((r.error&&r.error.message)||'Hata','e');return;}
+  var items=r.data.items||[];
+  document.getElementById('srBulkTb').innerHTML=items.map(function(d){
+    if(d.error)return '<tr><td>'+x(d.keyword)+'</td><td colspan="4" style="color:var(--red)">'+x(d.error)+'</td></tr>';
+    var kdc=d.keywordDifficulty>70?'br':d.keywordDifficulty>40?'by':'bg';
+    return '<tr><td>'+x(d.keyword)+'</td><td class="mono">'+d.volume.toLocaleString()+'</td>'+
+      '<td><span class="badge '+kdc+'">'+d.keywordDifficulty+'</span></td>'+
+      '<td class="mono">$'+d.cpc.toFixed(2)+'</td>'+
+      '<td class="mono">'+(d.competition*100).toFixed(0)+'%</td></tr>';
+  }).join('');
+  toast(items.length+' keyword analiz edildi','s');
+}
 </script>
 </body>
 </html>
