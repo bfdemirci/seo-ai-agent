@@ -174,7 +174,7 @@ td.mono{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
       </div>
       <div class="tw">
         <div class="th"><span class="th-t">All articles</span><button class="btn btn-s" onclick="loadArts()">⟳ Refresh</button></div>
-        <table><thead><tr><th>Keyword</th><th>Status</th><th>Score</th><th>Site</th><th>Published</th><th>Created</th><th style="width:210px">Actions</th></tr></thead>
+        <table><thead><tr><th>Keyword</th><th>Status</th><th>Score</th><th>Site</th><th>Published</th><th>Created</th><th style="width:140px">Actions</th></tr></thead>
         <tbody id="aB"></tbody></table>
         <div class="pag" id="aP"></div>
       </div>
@@ -239,6 +239,31 @@ td.mono{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
     <div class="ma"><button class="btn" onclick="closeM()">Cancel</button><button class="btn btn-p" id="sB2" onclick="saveSite()">Save</button></div>
   </div>
 </div>
+
+<div id="artModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;overflow-y:auto;padding:40px 20px">
+  <div style="max-width:800px;margin:0 auto;background:var(--card);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--border)">
+      <div>
+        <div style="font-size:16px;font-weight:600;color:var(--text)" id="amKeyword">—</div>
+        <div style="font-size:11px;color:var(--muted);font-family:var(--font-mono);margin-top:4px" id="amId">—</div>
+      </div>
+      <button onclick="closeArtModal()" style="background:var(--surface);border:1px solid var(--border);color:var(--text);padding:6px 12px;border-radius:var(--radius-sm);cursor:pointer;font-size:13px">✕ Close</button>
+    </div>
+    <div style="padding:20px 24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px" id="amMeta"></div>
+    <div style="padding:0 24px 16px">
+      <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Meta</div>
+      <div style="background:var(--surface);border-radius:var(--radius-sm);padding:12px;font-size:12px;color:var(--text)" id="amMetaInfo">—</div>
+    </div>
+    <div style="padding:0 24px 20px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em">Content Preview</div>
+        <div style="display:flex;gap:8px" id="amActions"></div>
+      </div>
+      <div id="amContent" style="background:var(--surface);border-radius:var(--radius-sm);padding:16px;font-size:13px;line-height:1.7;color:var(--text);max-height:400px;overflow-y:auto;white-space:pre-wrap;word-break:break-word">Loading…</div>
+    </div>
+  </div>
+</div>
+
 <div class="tc" id="tC"></div>
 <script>
 'use strict';
@@ -331,7 +356,7 @@ function renderArts(){
   tb.innerHTML=page.map(function(a){
     var sc=a.latestEvaluation&&a.latestEvaluation.scoreV1&&a.latestEvaluation.scoreV1.overallScore;
     var id=x(a.id||a.articleId||'');
-    return '<tr>'+
+    return '<tr style="cursor:pointer" onclick="openArtDetail(\''+id+'\')">'+
       '<td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="'+x(a.keyword||'')+'">'+x(a.keyword||'—')+'</td>'+
       '<td>'+sb2(a.status||'unknown')+'</td>'+
       '<td>'+(sc?sBar(sc):'<span style="color:var(--muted)">—</span>')+'</td>'+
@@ -391,7 +416,7 @@ async function loadRuns(){
   if(!runs.length){sb('rB',6,'◎','No runs yet.');return;}
   document.getElementById('rB').innerHTML=runs.map(function(run,i){
     var ts=run.startedAt||run.createdAt;
-    return '<tr>'+
+    return '<tr style="cursor:pointer" onclick="openArtDetail(\''+id+'\')">'+
       '<td class="mono" style="font-size:10px">'+x(run.runId||'—')+'</td>'+
       '<td class="mono" style="font-size:11px">'+(ts?new Date(ts).toLocaleString():'—')+'</td>'+
       '<td class="mono">'+(run.durationMs?(run.durationMs/1000).toFixed(1)+'s':'—')+'</td>'+
@@ -410,7 +435,7 @@ async function loadSites(){
   if(!S.sites.length){sb('sB',6,'◉','No sites. Add one above.');return;}
   document.getElementById('sB').innerHTML=S.sites.map(function(s){
     var pc=s.publisherConfig||{};
-    return '<tr>'+
+    return '<tr style="cursor:pointer" onclick="openArtDetail(\''+id+'\')">'+
       '<td class="mono">'+x(s.siteId)+'</td>'+
       '<td>'+x(s.name||'—')+'</td>'+
       '<td>'+pBadge(s.publisherType||'manual')+'</td>'+
