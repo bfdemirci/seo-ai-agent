@@ -1,9 +1,18 @@
 import { Router } from 'express';
-import { requireAuth } from '../../middlewares/auth.middleware.js';
-import { runCampaign } from '../../controllers/programmatic.controller.js';
+import { requireAuth } from '../../middleware/auth.js';
+import {
+  listCampaignsController, createCampaignController, updateCampaignController,
+  addKeywordsController, getQueueController, getHistoryController, runNowController
+} from '../../controllers/programmatic.controller.js';
 
-var router = Router();
+const router = Router();
 
-router.post('/programmatic/run', requireAuth, runCampaign);
+router.get( '/campaigns',                    requireAuth, listCampaignsController);
+router.post('/campaigns',                    requireAuth, createCampaignController);
+router.patch('/campaigns/:campaignId',       requireAuth, updateCampaignController);
+router.post('/campaigns/:campaignId/keywords', requireAuth, addKeywordsController);
+router.get( '/queue',                        requireAuth, getQueueController);
+router.get( '/history',                      requireAuth, getHistoryController);
+router.post('/run',                          requireAuth, runNowController);
 
 export default router;

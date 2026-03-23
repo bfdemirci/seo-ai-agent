@@ -137,6 +137,28 @@ async function runSchedulerCycle() {
     }
   }
 
+  // Programmatic queue processing
+  try {
+    var { processQueue } = await import('../programmatic/programmaticEngine.js');
+    var pqResult = await processQueue();
+    if (pqResult && !pqResult.skipped) {
+      console.log('[SCHEDULER] programmatic queue processed:', pqResult.processed || 0);
+    }
+  } catch (pqErr) {
+    console.error('[SCHEDULER] programmatic queue error:', pqErr && pqErr.message);
+  }
+
+  // Programmatic queue processing
+  try {
+    var { processQueue } = await import('../programmatic/programmaticEngine.js');
+    var pqResult = await processQueue();
+    if (pqResult && !pqResult.skipped) {
+      console.log('[SCHEDULER] programmatic queue processed:', pqResult.processed || 0);
+    }
+  } catch (pqErr) {
+    console.error('[SCHEDULER] programmatic queue error:', pqErr && pqErr.message);
+  }
+
   console.log('[SCHEDULER] cycle complete');
   try {
     var _cycleFinishedAt = new Date().toISOString();
