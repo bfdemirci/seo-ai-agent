@@ -178,7 +178,7 @@ export async function processQueue() {
     console.log('[PROGRAMMATIC] processing', toProcess.length, 'items');
 
     // Lazy import to avoid circular deps
-    var { writerPipeline } = await import('../../../pipelines/writerPipeline.js');
+    var { writerPipeline } = await import('../../pipelines/writerPipeline.js');
 
     var processed = 0;
     for (var i = 0; i < toProcess.length; i++) {
