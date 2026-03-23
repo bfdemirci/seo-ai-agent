@@ -144,6 +144,7 @@ td.mono{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
       <div class="ni" onclick="sw('runs',this)"><span>◎</span> Runs</div>
       <div class="ni" onclick="sw('sites',this)"><span>◉</span> Sites</div>
       <div class="ni" onclick="sw('system',this)"><span>⊙</span> System</div>
+      <div class="ni" onclick="sw('seoRush',this)"><span>◎</span> SeoRush</div>
     </nav>
     <div class="sb-ftr"><div class="usr"><div class="ua" id="uA">A</div><div class="ue" id="uE">—</div><button class="lo-btn" onclick="doLogout()">⎋</button></div></div>
   </aside>
@@ -194,6 +195,25 @@ td.mono{font-family:var(--font-mono);font-size:11px;color:var(--muted);}
         <tbody id="sB"></tbody></table>
       </div>
     </div>
+    <div class="tab-c" id="tab-seoRush">
+      <div class="ph"><div class="pt">SeoRush</div><div class="ps">Keyword intelligence — SEMrush API</div></div>
+      <div class="gb" style="flex-direction:column;gap:12px">
+        <div style="display:flex;gap:8px">
+          <input type="text" class="gi" id="srKw" placeholder="Keyword ara...">
+          <button class="btn btn-p" id="srBtn" onclick="srSearch()">Ara</button>
+        </div>
+        <textarea class="gi" id="srBulkKw" placeholder="Toplu arama — her satira bir keyword (max 10)" rows="3" style="resize:vertical;font-size:12px;font-family:var(--font-mono)"></textarea>
+        <button class="btn" id="srBulkBtn" onclick="srBulkSearch()" style="align-self:flex-start">Toplu Ara</button>
+      </div>
+      <div id="srSingle" style="margin-top:12px"></div>
+      <div class="tw" style="margin-top:16px">
+        <div class="th"><span class="th-t">Bulk Sonuclar</span></div>
+        <table><thead><tr><th>Keyword</th><th>Hacim</th><th>KD</th><th>CPC</th><th>Rekabet</th></tr></thead>
+        <tbody id="srBulkTb"><tr><td colspan="5"><div class="empty"><div class="ei">o</div><div class="et">Toplu arama sonuclari burada gorunur</div></div></td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
     <div class="tab-c" id="tab-system">
       <div class="ph"><div class="pt">System</div><div class="ps">Runtime configuration</div></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
