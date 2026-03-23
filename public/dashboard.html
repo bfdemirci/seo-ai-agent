@@ -283,6 +283,10 @@ async function doLogin(){
   var d=await api('POST','/auth/login',{email:e,password:p});
   if(d.success&&d.data&&d.data.token){
     S.token=d.data.token;
+    sessionStorage.setItem('ws_token', S.token);
+    sessionStorage.setItem('ws_user', e);
+    var dash = window.location.search.indexOf('dash=1') >= 0;
+    if (!dash) { window.location.href = '/seo-agent/workspace.html'; return; }
     document.getElementById('loginScreen').style.display='none';
     document.getElementById('app').style.display='flex';
     document.getElementById('uE').textContent=e;
