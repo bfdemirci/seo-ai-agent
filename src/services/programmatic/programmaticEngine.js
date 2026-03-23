@@ -210,7 +210,7 @@ export async function processQueue() {
         idx   = queue.findIndex(function(x) { return x.id === q.id; });
         if (idx >= 0) {
           queue[idx].status    = 'done';
-          queue[idx].articleId = result.articleId || null;
+          queue[idx].articleId = result.evaluation.articleId || null;
           queue[idx].updatedAt = new Date().toISOString();
           write(QUEUE, queue);
         }
@@ -219,12 +219,12 @@ export async function processQueue() {
           keyword:    q.keyword,
           siteId:     q.siteId,
           campaignId: q.campaignId,
-          articleId:  result.articleId || null,
+          articleId:  result.evaluation.articleId || null,
           success:    true,
           error:      null,
         });
 
-        console.log('[PROGRAMMATIC] success: keyword=' + q.keyword + ' articleId=' + (result.articleId || '—'));
+        console.log('[PROGRAMMATIC] success: keyword=' + q.keyword + ' articleId=' + (result.evaluation.articleId || '—'));
         processed++;
 
       } catch(err) {
