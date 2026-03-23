@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { requireAuth } from '../../middleware/auth.js';
+import { requireAuth } from '../../middlewares/auth.middleware.js';
 import {
   listCampaignsController, createCampaignController, updateCampaignController,
   addKeywordsController, getQueueController, getHistoryController, runNowController
