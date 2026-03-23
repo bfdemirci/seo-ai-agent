@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEO Agent Workspace</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#080a12;--surface:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--text:#f0f2f8;--muted:rgba(240,242,248,.5);--accent:#4f8fff;--green:#3dd68c;--red:#ff5f5f;--yellow:#f5c542;--font:'Sora',sans-serif;--radius:14px;--radius-sm:8px}
+html,body{height:100%;font-family:var(--font);color:var(--text);background:var(--bg);overflow-x:hidden}
+#bgWrap{position:fixed;inset:0;z-index:0}
+.bgL{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 1.4s ease}
+#bL1{opacity:1}
+#bL2{opacity:0}
+#bgOv{position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,10,18,.92),rgba(8,10,18,.75) 50%,rgba(8,10,18,.88))}
+#topBar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px 32px;background:linear-gradient(to bottom,rgba(8,10,18,.8),transparent)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-ic{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.logo-tx{font-size:15px;font-weight:600}
+.top-r{display:flex;align-items:center;gap:8px}
+.tbtn{background:var(--surface);border:1px solid var(--border);color:var(--text);padding:7px 14px;border-radius:var(--radius-sm);cursor:pointer;font-size:12px;font-family:var(--font);backdrop-filter:blur(8px)}
+.tbtn:hover{background:rgba(255,255,255,.1)}
+.upill{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);padding:6px 12px;border-radius:20px;backdrop-filter:blur(8px)}
+.uav{width:24px;height:24px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600}
+.uem{font-size:12px;color:var(--muted)}
+.view{display:none;position:relative;z-index:10}
+.view.active{display:flex}
+#vHome{min-height:100vh;flex-direction:column;align-items:center;justify-content:center;padding:100px 24px 60px;text-align:center}
+.htitle{font-size:clamp(28px,5vw,52px);font-weight:300;line-height:1.2;margin-bottom:12px;letter-spacing:-.02em}
+.htitle strong{font-weight:600;color:#fff}
+.hsub{font-size:16px;color:var(--muted);margin-bottom:48px;font-weight:300}
+.swrap{width:100%;max-width:680px;position:relative;margin-bottom:28px}
+.sinput{width:100%;padding:20px 72px 20px 24px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:20px;color:var(--text);font-size:16px;font-family:var(--font);backdrop-filter:blur(20px);transition:all .2s ease;outline:none}
+.sinput::placeholder{color:rgba(240,242,248,.4)}
+.sinput:focus{border-color:var(--accent);background:rgba(255,255,255,.1);box-shadow:0 0 0 4px rgba(79,143,255,.15)}
+.sgo{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:12px;background:var(--accent);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;transition:all .2s ease}
+.sgo:hover{background:#3a7aee;transform:translateY(-50%) scale(1.05)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:680px}
+.chip{padding:10px 18px;border-radius:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:var(--text);font-size:13px;cursor:pointer;backdrop-filter:blur(12px);transition:all .2s ease;display:flex;align-items:center;gap:7px}
+.chip:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.25);transform:translateY(-1px)}
+.hstats{position:absolute;bottom:32px;display:flex;gap:32px;font-size:12px;color:var(--muted)}
+.hstat strong{color:var(--text)}
+.gcards{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:24px;max-width:680px}
+.gcard{padding:14px 20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;backdrop-filter:blur(12px);text-align:center;min-width:130px}
+.gc-l{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px}
+.gc-v{font-size:22px;font-weight:600;color:#fff}
+#vLoad{min-height:100vh;flex-direction:column;align-items:center;justify-content:center;padding:100px 24px;text-align:center}
+.lkw{font-size:24px;font-weight:500;margin-bottom:40px;color:#fff}
+.lkw span{color:var(--accent)}
+.steps{display:flex;flex-direction:column;gap:12px;width:100%;max-width:440px}
+.step{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--border);font-size:13px;color:var(--muted);text-align:left;transition:all .4s ease}
+.step.active{background:rgba(79,143,255,.1);border-color:rgba(79,143,255,.3);color:var(--text)}
+.step.done{background:rgba(61,214,140,.08);border-color:rgba(61,214,140,.25);color:var(--green)}
+.step.fail{background:rgba(255,95,95,.08);border-color:rgba(255,95,95,.25);color:var(--red)}
+.sic{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;background:rgba(255,255,255,.06)}
+.step.active .sic{background:rgba(79,143,255,.2)}
+.step.done .sic{background:rgba(61,214,140,.2)}
+.spin{width:14px;height:14px;border:2px solid rgba(79,143,255,.3);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#vResult{min-height:100vh;flex-direction:column;padding:80px 24px 40px;max-width:1280px;margin:0 auto;width:100%}
+.rtop{display:flex;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+.rkw{font-size:22px;font-weight:500;color:#fff}
+.rbadge{padding:4px 10px;border-radius:6px;font-size:11px;background:rgba(61,214,140,.15);color:var(--green);border:1px solid rgba(61,214,140,.25)}
+.rback{background:var(--surface);border:1px solid var(--border);color:var(--muted);padding:7px 14px;border-radius:var(--radius-sm);cursor:pointer;font-size:12px;font-family:var(--font);transition:all .2s;margin-left:auto}
+.rback:hover{color:var(--text)}
+.rcols{display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:start}
+@media(max-width:900px){.rcols{grid-template-columns:1fr}}
+.lp{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--radius);padding:20px;position:sticky;top:80px}
+.lpt{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px}
+.kww{font-size:20px;font-weight:600;color:#fff;margin-bottom:16px}
+.kwg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.kws{background:rgba(255,255,255,.04);border-radius:8px;padding:10px}
+.kwsl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.kwsv{font-size:16px;font-weight:500;color:var(--text)}
+.kwsv.good{color:var(--green)}.kwsv.warn{color:var(--yellow)}.kwsv.bad{color:var(--red)}
+.div{height:1px;background:var(--border);margin:16px 0}
+.rl{display:flex;flex-direction:column;gap:6px}
+.ri{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border-radius:6px;background:rgba(255,255,255,.03);font-size:12px;cursor:pointer;transition:all .2s}
+.ri:hover{background:rgba(255,255,255,.07)}
+.rp{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.tabs{display:flex;border-bottom:1px solid var(--border)}
+.tab{padding:14px 20px;font-size:13px;color:var(--muted);cursor:pointer;transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab.active{color:var(--text);border-bottom-color:var(--accent)}
+.tab:hover{color:var(--text)}
+.tp{display:none;padding:24px}
+.tp.active{display:block}
+.aacts{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.abtn{padding:9px 18px;border-radius:var(--radius-sm);font-size:13px;cursor:pointer;font-family:var(--font);transition:all .2s;border:1px solid var(--border)}
+.abtn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.abtn.pri:hover{background:#3a7aee}
+.abtn.suc{background:rgba(61,214,140,.15);border-color:rgba(61,214,140,.3);color:var(--green)}
+.abtn.suc:hover{background:rgba(61,214,140,.25)}
+.abtn.gh{background:transparent;color:var(--muted)}
+.abtn.gh:hover{color:var(--text);background:rgba(255,255,255,.05)}
+.abtn:disabled{opacity:.4;cursor:not-allowed}
+.mb{background:rgba(255,255,255,.03);border-radius:8px;padding:16px;margin-bottom:16px}
+.mbl{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px}
+.mbv{font-size:13px;color:var(--text);line-height:1.5}
+.mbv.mn{font-family:monospace;font-size:12px}
+.cprev{background:rgba(255,255,255,.03);border-radius:8px;padding:20px;font-size:13px;line-height:1.8;color:rgba(240,242,248,.85);white-space:pre-wrap;word-break:break-word;max-height:520px;overflow-y:auto}
+.cprev::-webkit-scrollbar{width:4px}
+.cprev::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.oitem{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.oitem:last-child{border-bottom:none}
+.oh{font-size:11px;font-family:monospace;color:var(--accent);min-width:28px}
+.ot{font-size:13px;color:var(--text)}
+.clg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.cc{padding:10px 14px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid var(--border);font-size:12px;color:var(--text);cursor:pointer;transition:all .2s}
+.cc:hover{background:rgba(79,143,255,.1);border-color:rgba(79,143,255,.3)}
+.tc{position:fixed;bottom:24px;right:24px;z-index:200;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+.toast{padding:12px 16px;border-radius:10px;font-size:13px;backdrop-filter:blur(16px);display:flex;align-items:center;gap:8px;pointer-events:auto;animation:tIn .2s ease;max-width:320px}
+.toast.s{background:rgba(61,214,140,.15);border:1px solid rgba(61,214,140,.3);color:var(--green)}
+.toast.e{background:rgba(255,95,95,.15);border:1px solid rgba(255,95,95,.3);color:var(--red)}
+.toast.i{background:rgba(79,143,255,.15);border:1px solid rgba(79,143,255,.3);color:var(--accent)}
+@keyframes tIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div id="bgWrap">
+  <div class="bgL" id="bL1"></div>
+  <div class="bgL" id="bL2"></div>
+  <div id="bgOv"></div>
+</div>
+<div id="topBar">
+  <div class="logo"><div class="logo-ic">⚡</div><span class="logo-tx">SEO Agent</span></div>
+  <div class="top-r">
+    <button class="tbtn" onclick="openDash()">⊞ Dashboard</button>
+    <div class="upill"><div class="uav" id="uAv">A</div><span class="uem" id="uEm">—</span><button class="tbtn" style="padding:4px 10px;border:none;background:none;color:var(--muted)" onclick="doLogout()">⎋</button></div>
+  </div>
+</div>
+<div class="view active" id="vHome">
+  <div class="htitle">Anahtar kelimeni yaz,<br><strong>makaleyi ben hazırlayayım.</strong></div>
+  <div class="hsub">SEO içeriği üret, analiz et, yayınla.</div>
+  <div class="swrap">
+    <input class="sinput" id="mSrch" type="text" placeholder="Örn: istanbul inşaat firmaları…" onkeydown="if(event.key==='Enter')runSearch()">
+    <button class="sgo" onclick="runSearch()">→</button>
+  </div>
+  <div class="chips">
+    <div class="chip" onclick="setChip('Makale üret')"><span>✦</span> Makale üret</div>
+    <div class="chip" onclick="setChip('Keyword analizi')"><span>◎</span> Keyword analizi</div>
+    <div class="chip" onclick="setChip('Rakip analizi')"><span>⟁</span> Rakip analizi</div>
+    <div class="chip" onclick="setChip('İçerik optimize et')"><span>⚙</span> Optimize et</div>
+    <div class="chip" onclick="setChip('Programmatic kampanya')"><span>⊞</span> Programmatic</div>
+  </div>
+  <div class="gcards" id="gcards">
+    <div class="gcard"><div class="gc-l">Makaleler</div><div class="gc-v" id="stArt">—</div></div>
+    <div class="gcard"><div class="gc-l">Queue</div><div class="gc-v" id="stQ">—</div></div>
+    <div class="gcard"><div class="gc-l">Kampanyalar</div><div class="gc-v" id="stCamp">—</div></div>
+    <div class="gcard"><div class="gc-l">Sistem</div><div class="gc-v" id="stSys">—</div></div>
+  </div>
+  <div class="hstats"><div class="hstat">gustotimes.com</div></div>
+</div>
+<div class="view" id="vLoad">
+  <div class="lkw">Üretiliyor: <span id="lKw">—</span></div>
+  <div class="steps" id="steps"></div>
+</div>
+<div class="view" id="vResult">
+  <div class="rtop">
+    <div class="rkw" id="rKw">—</div>
+    <div class="rbadge" id="rBadge">—</div>
+    <button class="rback" onclick="showView('vHome')">← Yeni arama</button>
+  </div>
+  <div class="rcols">
+    <div class="lp">
+      <div class="lpt">Keyword Intelligence</div>
+      <div class="kww" id="kwW">—</div>
+      <div class="kwg" id="kwG"></div>
+      <div class="div"></div>
+      <div class="lpt">İlgili Keywordler</div>
+      <div class="rl" id="relL"></div>
+    </div>
+    <div class="rp">
+      <div class="tabs">
+        <div class="tab active" onclick="swTab('tArt',this)">Makale</div>
+        <div class="tab" onclick="swTab('tAnal',this)">Analiz</div>
+        <div class="tab" onclick="swTab('tOut',this)">Outline</div>
+        <div class="tab" onclick="swTab('tClus',this)">Clusters</div>
+      </div>
+      <div class="tp active" id="tArt">
+        <div class="aacts" id="aActs"></div>
+        <div class="mb"><div class="mbl">Meta Başlık</div><div class="mbv" id="rMT">—</div></div>
+        <div class="mb"><div class="mbl">Meta Açıklama</div><div class="mbv" id="rMD">—</div></div>
+        <div class="mb"><div class="mbl">Slug</div><div class="mbv mn" id="rSl">—</div></div>
+        <div class="mbl" style="margin-bottom:8px">İçerik Önizleme</div>
+        <div class="cprev" id="rCon">—</div>
+      </div>
+      <div class="tp" id="tAnal"><div id="analC" style="font-size:13px;color:var(--muted)">—</div></div>
+      <div class="tp" id="tOut"><div id="outC"></div></div>
+      <div class="tp" id="tClus"><div class="clg" id="clusC"></div></div>
+    </div>
+  </div>
+</div>
+<div class="tc" id="tC"></div>
+<script>
+'use strict';
+var WS={token:null,user:null,art:null,kw:null,bgIdx:0,bgAct:1};
+var B='/seo-agent/api/v1';
+var bgImgs=[
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80',
+  'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1920&q=80',
+  'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1920&q=80',
+  'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1920&q=80',
+  'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80'
+];
+function initBg(){
+  var l1=document.getElementById('bL1'),l2=document.getElementById('bL2');
+  l1.style.backgroundImage='url('+bgImgs[0]+')';
+  setInterval(function(){
+    WS.bgIdx=(WS.bgIdx+1)%bgImgs.length;
+    if(WS.bgAct===1){l2.style.backgroundImage='url('+bgImgs[WS.bgIdx]+')';l2.style.opacity='1';l1.style.opacity='0';WS.bgAct=2;}
+    else{l1.style.backgroundImage='url('+bgImgs[WS.bgIdx]+')';l1.style.opacity='1';l2.style.opacity='0';WS.bgAct=1;}
+  },10000);
+}
+async function api(m,u,b){
+  var o={method:m,headers:{'Content-Type':'application/json'}};
+  if(WS.token)o.headers['Authorization']='Bearer '+WS.token;
+  if(b)o.body=JSON.stringify(b);
+  try{return await(await fetch(B+u,o)).json();}catch(e){return{success:false,error:{message:e.message}};}
+}
+function checkAuth(){
+  var t=sessionStorage.getItem('ws_token'),u=sessionStorage.getItem('ws_user');
+  if(!t){window.location.href='/seo-agent/maintenance.html';return false;}
+  WS.token=t;WS.user=u||'admin';
+  var av=document.getElementById('uAv'),em=document.getElementById('uEm');
+  if(av)av.textContent=(WS.user[0]||'A').toUpperCase();
+  if(em)em.textContent=WS.user;
+  return true;
+}
+function doLogout(){sessionStorage.removeItem('ws_token');sessionStorage.removeItem('ws_user');window.location.href='/seo-agent/maintenance.html';}
+function openDash(){window.location.href='/seo-agent/maintenance.html?dash=1';}
+function showView(id){document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active');});var el=document.getElementById(id);if(el)el.classList.add('active');}
+function toast(msg,t){var el=document.createElement('div');el.className='toast '+(t||'i');el.textContent=msg;document.getElementById('tC').appendChild(el);setTimeout(function(){el.remove();},3500);}
+function x(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+async function loadStats(){
+  try{var r=await api('GET','/articles');if(r.success){var it=r.data.items||r.data||[];document.getElementById('stArt').textContent=Array.isArray(it)?it.length:'—';}}catch(e){}
+  try{var rq=await api('GET','/programmatic/queue');if(rq.success){document.getElementById('stQ').textContent=(rq.data.stats&&rq.data.stats.pending)||0;}}catch(e){}
+  try{var rc=await api('GET','/programmatic/campaigns');if(rc.success){document.getElementById('stCamp').textContent=(rc.data.items||[]).filter(function(c){return c.status==='active';}).length;}}catch(e){}
+  try{var rh=await api('GET','/health');if(rh.success){document.getElementById('stSys').textContent='Online';}}catch(e){}
+}
+function setChip(v){document.getElementById('mSrch').value=v+': ';document.getElementById('mSrch').focus();}
+var STEPS=[{i:'🔍',l:'Niyet analizi…'},{i:'📊',l:'Keyword verisi…'},{i:'🔎',l:'SERP taranıyor…'},{i:'✏️',l:'Outline oluşturuluyor…'},{i:'📝',l:'Makale yazılıyor…'},{i:'⚖️',l:'İçerik değerlendiriliyor…'},{i:'✨',l:'Final optimizasyon…'}];
+function renderSteps(ai){
+  document.getElementById('steps').innerHTML=STEPS.map(function(s,i){
+    var cls=i<ai?'done':i===ai?'active':'';
+    var ic=i<ai?'✓':i===ai?'<div class="spin"></div>':s.i;
+    return '<div class="step '+cls+'"><div class="sic">'+ic+'</div><div>'+s.l+'</div></div>';
+  }).join('');
+}
+async function runSearch(){
+  var kw=document.getElementById('mSrch').value.trim();
+  if(!kw){toast('Bir keyword gir','e');return;}
+  document.getElementById('lKw').textContent=kw;
+  showView('vLoad');renderSteps(0);
+  var kwP=api('GET','/seo-rush/keyword?keyword='+encodeURIComponent(kw));
+  var si=0;
+  var t=setInterval(function(){si=Math.min(si+1,STEPS.length-2);renderSteps(si);},900);
+  var r=await api('POST','/generate',{keyword:kw});
+  clearInterval(t);
+  if(!r||!r.success){toast((r&&r.error&&r.error.message)||'Üretim hatası','e');setTimeout(function(){showView('vHome');},2500);return;}
+  renderSteps(STEPS.length);
+  var artId=r.data&&(r.data.articleId||r.data.id);
+  var kwD=await kwP;
+  var ad=null;
+  if(artId){var ar=await api('GET','/articles/'+artId);if(ar&&ar.success)ad=ar.data;}
+  WS.art=ad||r.data;WS.kw=kwD&&kwD.success?kwD.data:null;
+  setTimeout(function(){buildResult(kw);showView('vResult');},600);
+}
+function buildResult(kw){
+  var a=WS.art,kd=WS.kw,id=a&&(a.id||a.articleId)||'';
+  document.getElementById('rKw').textContent=kw;
+  document.getElementById('rBadge').textContent=(a&&a.status||'generated').toUpperCase();
+  document.getElementById('aActs').innerHTML=
+    '<button class="abtn pri" onclick="resOpt(\''+x(id)+'\',this)">⚙ Optimize</button>'+
+    '<button class="abtn suc" onclick="resPub(\''+x(id)+'\',this)">↗ Yayınla</button>'+
+    '<button class="abtn gh" onclick="resAddCamp(\''+x(id)+'\',\''+x(kw)+'\')">+ Kampanya</button>'+
+    '<button class="abtn gh" onclick="resRegen(\''+x(id)+'\',\''+x(kw)+'\',this)">↺ Yeniden üret</button>';
+  document.getElementById('rMT').textContent=(a&&(a.metaTitle||(a.meta&&a.meta.metaTitle)))||'—';
+  document.getElementById('rMD').textContent=(a&&(a.metaDescription||(a.meta&&a.meta.metaDescription)))||'—';
+  document.getElementById('rSl').textContent=(a&&(a.slug||(a.meta&&a.meta.slug)))||'—';
+  var con=a&&(a.content||a.finalContent)||'';
+  if(!con&&a&&a.sections)con=a.sections.map(function(s){return(s.heading?'## '+s.heading+'\n':'')+(s.body||'');}).join('\n\n');
+  document.getElementById('rCon').textContent=con||'İçerik bulunamadı.';
+  document.getElementById('kwW').textContent=kw;
+  var stats=kd?[{l:'Hacim',v:kd.volume?kd.volume.toLocaleString():'—',c:''},{l:'KD',v:kd.keywordDifficulty!==undefined?kd.keywordDifficulty:'—',c:kd.keywordDifficulty>70?'bad':kd.keywordDifficulty>40?'warn':'good'},{l:'CPC',v:kd.cpc!==undefined?'$'+kd.cpc.toFixed(2):'—',c:''},{l:'Rekabet',v:kd.competition!==undefined?(kd.competition*100).toFixed(0)+'%':'—',c:''}]:[{l:'Hacim',v:'—',c:''},{l:'KD',v:'—',c:''},{l:'CPC',v:'—',c:''},{l:'Rekabet',v:'—',c:''}];
+  document.getElementById('kwG').innerHTML=stats.map(function(s){return '<div class="kws"><div class="kwsl">'+s.l+'</div><div class="kwsv '+s.c+'">'+s.v+'</div></div>';}).join('');
+  var rels=kd&&kd.relatedKeywords||[];
+  document.getElementById('relL').innerHTML=rels.slice(0,6).map(function(r){return '<div class="ri" onclick="document.getElementById(\'mSrch\').value=\''+x(r.keyword)+'\'"><span>'+x(r.keyword)+'</span><span style="color:var(--muted);font-size:11px">'+(r.volume?r.volume.toLocaleString():'—')+'</span></div>';}).join('')||'<div style="font-size:12px;color:var(--muted)">SEMrush API key gerekli</div>';
+  var sc=a&&a.latestEvaluation&&a.latestEvaluation.scoreV1;
+  document.getElementById('analC').innerHTML=sc?'<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">'+[{l:'Genel',v:sc.overallScore||'—'},{l:'İçerik',v:sc.contentQuality||'—'},{l:'SEO',v:sc.seoAlignment||'—'},{l:'Okunabilirlik',v:sc.readability||'—'}].map(function(s){return '<div class="kws"><div class="kwsl">'+s.l+'</div><div class="kwsv">'+s.v+'</div></div>';}).join('')+'</div>':'<div style="font-size:12px;color:var(--muted)">Skor verisi yok</div>';
+  var secs=a&&a.sections||[];
+  var matches=!secs.length&&con?con.match(/^#{1,3} .+/gm)||[]:[];
+  document.getElementById('outC').innerHTML=secs.length?secs.map(function(s,i){return '<div class="oitem"><div class="oh">H'+(s.level||2)+'</div><div class="ot">'+x(s.heading||'Bölüm '+(i+1))+'</div></div>';}).join(''):matches.length?matches.map(function(h){var lv=(h.match(/^(#+)/)||['','##'])[1].length;return '<div class="oitem"><div class="oh">H'+lv+'</div><div class="ot">'+x(h.replace(/^#+\s*/,''))+'</div></div>';}).join(''):'<div style="font-size:12px;color:var(--muted)">Outline verisi yok</div>';
+  document.getElementById('clusC').innerHTML=(kd&&kd.relatedKeywords||[]).map(function(r){return '<div class="cc" onclick="document.getElementById(\'mSrch\').value=\''+x(r.keyword)+'\';runSearch()">'+x(r.keyword)+'</div>';}).join('')||'<div style="font-size:12px;color:var(--muted)">SEMrush API key gerekli</div>';
+}
+async function resOpt(id,btn){if(!id){toast('ID yok','e');return;}btn.disabled=true;btn.textContent='…';var r=await api('POST','/articles/'+id+'/optimize',{});btn.disabled=false;btn.textContent='⚙ Optimize';if(r&&r.success)toast('Optimize edildi!','s');else toast((r&&r.error&&r.error.message)||'Hata','e');}
+async function resPub(id,btn){if(!id){toast('ID yok','e');return;}btn.disabled=true;btn.textContent='…';var r=await api('POST','/articles/'+id+'/publish',{});btn.disabled=false;btn.textContent='↗ Yayınla';if(r&&r.success){if(r.data&&r.data.skipped)toast('Atlandı: '+(r.data.reason||'manual'),'i');else toast('Yayınlandı!','s');}else toast((r&&r.error&&r.error.message)||'Hata','e');}
+async function resAddCamp(id,kw){var r=await api('GET','/programmatic/campaigns');if(!r.success||(r.data.items||[]).length===0){toast('Aktif kampanya yok','e');return;}var camp=(r.data.items||[]).find(function(c){return c.status==='active';});if(!camp){toast('Aktif kampanya yok','e');return;}var r2=await api('POST','/programmatic/campaigns/'+camp.id+'/keywords',{keywords:[kw]});if(r2&&r2.success)toast('Eklendi: '+camp.name,'s');else toast('Hata','e');}
+async function resRegen(id,kw,btn){btn.disabled=true;btn.textContent='…';var r=await api('POST','/generate',{keyword:kw});btn.disabled=false;btn.textContent='↺ Yeniden üret';if(r&&r.success){toast('Yeniden üretildi!','s');var newId=r.data&&(r.data.articleId||r.data.id);if(newId){var ad=await api('GET','/articles/'+newId);if(ad&&ad.success){WS.art=ad.data;buildResult(kw);}}}else toast((r&&r.error&&r.error.message)||'Hata','e');}
+function swTab(pid,el){document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});document.querySelectorAll('.tp').forEach(function(p){p.classList.remove('active');});if(el)el.classList.add('active');var p=document.getElementById(pid);if(p)p.classList.add('active');}
+(function(){if(!checkAuth())return;initBg();loadStats();})();
+</script>
+</body>
+</html>
