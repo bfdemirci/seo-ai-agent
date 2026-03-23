@@ -31,6 +31,19 @@ export async function publishArticleNow(req, res) {
     var articleId = req.params.articleId;
     var article = getArticleById(articleId);
     if (!article) return notFound(res, 'Article not found: ' + articleId);
+
+    // Publisher type guard
+    var siteId  = article.site || (req.body && req.body.siteId);
+    if (siteId) {
+      var { getSiteByIdRaw } = await import('../repositories/siteRepository.js');
+      var site = getSiteByIdRaw(siteId);
+      if (site && !isWordPressPublisher(site)) {
+        var adapter = resolvePublisher(site);
+        var adapterResult = await adapter({ article, site });
+        return ok(res, adapterResult);
+      }
+    }
+
     var result = await publishArticle(articleId);
     return ok(res, {
       articleId:       articleId,
