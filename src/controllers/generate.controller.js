@@ -8,7 +8,7 @@ import { writerPipeline } from '../pipelines/writerPipeline.js';
  */
 export async function generate(req, res) {
   var keyword = (req.body.keyword || '').trim();
-  var site    = (req.body.site    || '').trim() || null;
+  var site    = (req.body.site || req.body.siteId || '').trim() || null;
   try {
     var result = await writerPipeline({ keyword, site });
     return ok(res, {
